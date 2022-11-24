@@ -1,12 +1,15 @@
 import '../styles/globals.css'
 import { Layout } from '../components/Layout'
+import { RoomsProvider } from '../contexts/RoomsContext'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>    
-      <Component {...pageProps} />
-      
-    </Layout>
+    <RoomsProvider>
+      <Layout>    
+        <Component {...pageProps} />
+        
+      </Layout>
+    </RoomsProvider>
   )
 }
 

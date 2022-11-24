@@ -4,11 +4,16 @@ import defaultImg from "../public/images/room-1.jpeg";
 //import PropTypes from "prop-types";
 import { memo } from "react";
 
-export const Room = memo(({ room }) => {
+export const Room = ({room}) => {
+
+  console.log(room)
+
   const { name, slug, images, price } = room;
   // console.log(name);
   return (
     <article className="room">
+      <h1>{room.fields.name}</h1>
+      {/* <h1>Holaaaaaaaaaaaaaa</h1>
       <div className="img-container">
         <img src={images[0] || defaultImg} alt="single room" />
         <div className="price-top">
@@ -19,10 +24,10 @@ export const Room = memo(({ room }) => {
           features
         </Link>
       </div>
-      <p className="room-info">{name}</p>
+      <p className="room-info">{name}</p> */}
     </article>
   );
-});
+};
 /* 
 Room.propTypes = {
   room: PropTypes.shape({
