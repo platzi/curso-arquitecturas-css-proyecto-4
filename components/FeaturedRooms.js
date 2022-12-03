@@ -1,13 +1,13 @@
 import { Title } from "./Title";
 import RoomsContext from '../contexts/RoomsContext';
 import { Room } from "./room";
-import { Loading } from "./loading";
+//import { Loading } from "./loading";
 import { useContext } from "react";
 import styles from '../styles/FeaturedRooms.module.css'
 
 export const FeaturedRooms = () => {
     
-    const { rooms } = useContext(RoomsContext)
+    let { rooms } = useContext(RoomsContext)
     //console.log(rooms)
     //render() {
     //let { loading, featuredRooms: rooms } = this.context;
@@ -22,6 +22,7 @@ export const FeaturedRooms = () => {
         return <Room key={room.id} room={room} />;
     }); */
 
+    rooms = rooms.filter( r => r.featured == 1 )
     return (
       <section className={styles.featuredRooms}>
         <Title title="featured rooms" />

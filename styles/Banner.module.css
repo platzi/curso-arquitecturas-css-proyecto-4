@@ -1,6 +1,10 @@
 /* Banner */
 .banner {
+  grid-area: full;
+  align-self: center;
   display: inline-block;
+  width: 50%;
+  height: 35vh;
   background: rgba(0, 0, 0, 0.5);
   color: var(--mainWhite);
   padding: 2rem 1rem;
@@ -26,15 +30,15 @@
     padding: 2rem 3rem;
   }
   .banner h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 992px) {
   .banner {
-    padding: 2rem 6rem;
+    padding: 3rem 6rem;
   }
   .banner h1 {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }
 /* End of Banner */

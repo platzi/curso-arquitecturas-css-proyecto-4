@@ -1,15 +1,29 @@
 /* Hero */
-.defaultHero,
+/* .defaultHero,
 .roomsHero {
   min-height: calc(100vh - 66px);
-  background: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 /*
 .roomsHero {
   background-image: url("../public/images/room-2.jpeg");
   min-height: 60vh;
 }
 /* End of Hero */
+.hero {
+  /* background-color: yellow; */
+  display: grid;
+  grid-template-areas: 'full';
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.img {
+  grid-area: full;
+  /* object-fit: cover; */
+  /* object-position: center center; */
+}

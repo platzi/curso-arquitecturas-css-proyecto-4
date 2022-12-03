@@ -38,7 +38,7 @@ const RoomDetail = () => {
 
       return (
         <>
-            <Hero>
+            <Hero imageUrl={img_url}>
                 <Banner title={`${name} room`}>
                     <Link href="/rooms" className="btn-primary">
                         back to rooms
