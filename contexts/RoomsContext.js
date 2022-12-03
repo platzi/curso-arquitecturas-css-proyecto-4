@@ -1,11 +1,11 @@
-import items from '../data/roomsData'
+import {rooms} from '../data/rooms'
 import { createContext } from 'react'
 
 const RoomsContext = createContext()
 
 const RoomsProvider = ({children}) => {
-
-    const data = { rooms: items }
+    
+    const data = { rooms }
 
     return (
         <RoomsContext.Provider value = {data}>

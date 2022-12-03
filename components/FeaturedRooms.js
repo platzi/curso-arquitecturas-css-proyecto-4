@@ -3,11 +3,12 @@ import RoomsContext from '../contexts/RoomsContext';
 import { Room } from "./room";
 import { Loading } from "./loading";
 import { useContext } from "react";
+import styles from '../styles/FeaturedRooms.module.css'
 
 export const FeaturedRooms = () => {
-
+    
     const { rooms } = useContext(RoomsContext)
-
+    //console.log(rooms)
     //render() {
     //let { loading, featuredRooms: rooms } = this.context;
 
@@ -22,16 +23,17 @@ export const FeaturedRooms = () => {
     }); */
 
     return (
-      <section className="featured-rooms">
+      <section className={styles.featuredRooms}>
         <Title title="featured rooms" />
-        <h1>{ rooms[0].fields.name }</h1>
-        <div className="featured-rooms-center">
-          { 
+      
+        <div className={styles.featuredRoomsCenter}>
+           { 
             rooms && rooms.map( room => {
-              return <Room key={room.sys.id} room={room} />
+              return <Room key={room.id} room={room} />
             })
           }
         </div>
+        
       </section>
     );
 }

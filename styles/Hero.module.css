@@ -2,7 +2,7 @@
 .defaultHero,
 .roomsHero {
   min-height: calc(100vh - 66px);
-  background: url("../public/images/defaultBcg.jpeg") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

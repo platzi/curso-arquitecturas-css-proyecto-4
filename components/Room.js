@@ -1,30 +1,30 @@
 import React from "react";
 import Link from 'next/link';
-import defaultImg from "../public/images/room-1.jpeg";
+//import defaultImg from "../public/images/room-1.jpeg";
 //import PropTypes from "prop-types";
-import { memo } from "react";
+// import { memo } from "react";
+import styles from '../styles/Room.module.css'
 
 export const Room = ({room}) => {
 
-  console.log(room)
+  //console.log(room)
 
-  const { name, slug, images, price } = room;
+  const { name, slug, price, img_url } = room;
   // console.log(name);
   return (
-    <article className="room">
-      <h1>{room.fields.name}</h1>
-      {/* <h1>Holaaaaaaaaaaaaaa</h1>
-      <div className="img-container">
-        <img src={images[0] || defaultImg} alt="single room" />
-        <div className="price-top">
+    <article className={styles.room}>
+      
+      <div className={styles.imgContainer}>
+        <img src={img_url} alt="single room" />
+        <div className={styles.priceTop}>
           <h6>${price}</h6>
           <p>per night</p>
         </div>
-        <Link to={`/rooms/${slug}`} className="btn-primary room-link">
+        <Link href={`/rooms/${slug}`} className={`${styles.roomLink} btn-primary`}>
           features
         </Link>
       </div>
-      <p className="room-info">{name}</p> */}
+      <p className={styles.roomInfo}>{name}</p>
     </article>
   );
 };
