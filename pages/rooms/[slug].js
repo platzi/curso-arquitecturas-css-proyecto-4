@@ -30,7 +30,7 @@ const RoomDetail = () => {
         //capacity,
         //size,
         price,
-        //extras,
+        extras,
         //breakfast,
         //pets,
         img_url
@@ -55,7 +55,7 @@ const RoomDetail = () => {
               <img /* key={index} */ src={img_url} alt={name} />
             </div>
             <div className={styles.singleRoomInfo}>
-              <article className="desc">
+              <article className={styles.desc}>
                 <h3>details</h3>
                 <p>{description}</p>
               </article>
@@ -73,11 +73,11 @@ const RoomDetail = () => {
             </div>
           </section>
           <section className={styles.roomExtras}>
-            <h6>extras </h6>
+            <h6>extras</h6>
             <ul className={styles.extras}>
-              {/* {extras.map((item, index) => (
+              {extras.map((item, index) => (
                 <li key={index}>- {item}</li>
-              ))} */}
+              ))}
             </ul> 
           </section>
         </>
