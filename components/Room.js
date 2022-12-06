@@ -20,7 +20,7 @@ export const Room = ({room}) => {
           <h6>${price}</h6>
           <p>per night</p>
         </div>
-        <Link href={`/rooms/${slug}`} className={`${styles.roomLink} btn-primary`}>
+        <Link href={`/room/${slug}`} className={`${styles.roomLink} btn-primary`}>
           features
         </Link>
       </div>

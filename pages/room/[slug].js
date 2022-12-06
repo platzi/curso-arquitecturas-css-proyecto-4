@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
-import {Banner } from '../../components/Banner'
+import { Banner } from '../../components/Banner'
 import { Hero } from '../../components/Hero';
 import Link from 'next/link'
 import styles from '../../styles/RoomDetail.module.css'
