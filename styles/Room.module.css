@@ -1,20 +1,28 @@
 /* room */
 .room {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: var(--lightShadow);
     transition: var(--mainTransition);
   }
+
   .room:hover {
     box-shadow: var(--darkShadow);
   }
   
   .imgContainer {
     position: relative;
+    
   }
+  
   .imgContainer img {
     width: 100%;
+    height: 12rem;
     display: block;
     transition: var(--mainTransition);
   }
+  
   .priceTop {
     position: absolute;
     top: 0;
@@ -59,5 +67,6 @@
     text-align: center;
     font-weight: 700;
     letter-spacing: var(--mainSpacing);
+    
   }
   /* end of room  */

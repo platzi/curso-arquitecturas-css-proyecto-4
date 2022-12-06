@@ -207,5 +207,24 @@
             "Internet",
             "Comfortable beds"
         ],
+    },
+    {
+        id: 12,
+        name: "classic",
+        slug: "classic",
+        price: 200,
+        featured: 0,
+        max_personas: 5,
+        description: "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
+        img_url: "https://plus.unsplash.com/premium_photo-1664303990705-f583f4677c0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=995&q=80",
+        extras: [
+            "Plush pillows and breathable bed linens",
+            "Soft, oversized bath towels",
+            "Full-sized, pH-balanced toiletries",
+            "Complimentary refreshments",
+            "Adequate safety/security",
+            "Internet",
+            "Comfortable beds"
+        ],
     }
 ]
