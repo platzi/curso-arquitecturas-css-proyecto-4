@@ -1,6 +1,6 @@
 import { Title } from "./Title";
 import RoomsContext from '../contexts/RoomsContext';
-import { Room } from "./room";
+import { RoomCard } from "./RoomCard";
 //import { Loading } from "./loading";
 import { useContext } from "react";
 import styles from '../styles/FeaturedRooms.module.css'
@@ -30,7 +30,7 @@ export const FeaturedRooms = () => {
         <div className={styles.featuredRoomsCenter}>
            { 
             rooms && rooms.map( room => {
-              return <Room key={room.id} room={room} />
+              return <RoomCard key={room.id} room={room} />
             })
           }
         </div>

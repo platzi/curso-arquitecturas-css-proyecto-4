@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
 import { Banner } from '../../components/Banner'
-import { Hero } from '../../components/Hero';
+import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import Link from 'next/link'
 import styles from '../../styles/RoomDetail.module.css'
 
@@ -38,21 +38,13 @@ const RoomDetail = () => {
 
       return (
         <>
-            <Hero imageUrl={img_url}>
-                <Banner title={`${name} room`}>
-                    <Link href="/rooms" className="btn-primary">
-                        back to rooms
-                    </Link>
-                </Banner>
-            </Hero>
+            <RoomDetailsHero imageUrl={img_url} />
+                
             <section className={styles.singleRoom}>
             <div className={styles.singleRoomImages}>
               {/* {defaultImages.map((item, index) => (
                 <img key={index} src={item} alt={name} />
               ))} */}
-              <img /* key={index} */ src={img_url} alt={name} />
-              <img /* key={index} */ src={img_url} alt={name} />
-              <img /* key={index} */ src={img_url} alt={name} />
             </div>
             <div className={styles.singleRoomInfo}>
               <article className={styles.desc}>

@@ -2,7 +2,7 @@
 import RoomsContext from '../contexts/RoomsContext';
 import { useContext } from "react";
 //import { Loading } from "./Loading";
-import { RoomsFilter } from "./RoomsFilter";
+import { RoomDetailsHero } from './RoomDetailsHero';
 import { RoomsList } from "./RoomsList";
 
 export const RoomsContainer = () => {
@@ -14,7 +14,7 @@ export const RoomsContainer = () => {
   } */
   return (
     <>
-      <RoomsFilter rooms={rooms} /> 
+      
       <RoomsList rooms={rooms} /> 
     </>
   );

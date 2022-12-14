@@ -1,9 +1,9 @@
-import { Room } from "./Room";
+import { RoomCard } from "./RoomCard";
 import styles from '../styles/RoomsList.module.css'
 
 export const RoomsList = ({ rooms }) => {
 
-    if (rooms.length === 0) {
+    if (!rooms) {
         return (
             <div className="empty-search">
                 <h3>unfortunately no rooms matched your search parameters</h3>
@@ -15,7 +15,7 @@ export const RoomsList = ({ rooms }) => {
         <section className={styles.roomsList}>
             <div className={styles.roomsListCenter}>
                 {rooms.map(item => {
-                return <Room key={item.id} room={item} />;
+                return <RoomCard key={item.id} room={item} />;
                 })}
             </div>
         </section>

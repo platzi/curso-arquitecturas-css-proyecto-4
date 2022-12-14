@@ -10,7 +10,6 @@ export const Hero = ({ children, imageUrl }) => {
                 alt="In front of the beach"
                 width={1300}
                 height={800}
-                objectFit="cover" 
                 className={ styles.img}
             />
             {children}

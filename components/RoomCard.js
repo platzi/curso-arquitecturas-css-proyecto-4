@@ -3,9 +3,9 @@ import Link from 'next/link';
 //import defaultImg from "../public/images/room-1.jpeg";
 //import PropTypes from "prop-types";
 // import { memo } from "react";
-import styles from '../styles/Room.module.css'
+import styles from '../styles/RoomCard.module.css'
 
-export const Room = ({room}) => {
+export const RoomCard = ({room}) => {
 
   //console.log(room)
 

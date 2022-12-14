@@ -29,16 +29,14 @@ export const Footer = () => {
         <div className={styles.footer}>
             
             {
-                footerMenu.map( m => {
-                    return <div className={styles.menu}>
+                footerMenu.map( (m, i) => {
+                    return <div className={styles.menu} key={i}>
                         <h6>{m.title}</h6>
                         <ul>
                         {
                             m.menuItems.map( (e, i) => {
                                 return <li key={i}>{e}</li>
-                            } 
-                                 
-                            )
+                            })
                         }
                         </ul>
                     </div>
