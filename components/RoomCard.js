@@ -1,40 +1,36 @@
-import React from "react";
 import Link from 'next/link';
-//import defaultImg from "../public/images/room-1.jpeg";
-//import PropTypes from "prop-types";
-// import { memo } from "react";
+import Image from "next/image";
 import styles from '../styles/RoomCard.module.css'
 
 export const RoomCard = ({room}) => {
 
-  //console.log(room)
 
   const { name, slug, price, img_url } = room;
-  // console.log(name);
+
   return (
     <article className={styles.room}>
       
       <div className={styles.imgContainer}>
-        <img src={img_url} alt="single room" />
-        <div className={styles.priceTop}>
-          <h6>${price}</h6>
-          <p>per night</p>
+        <Image
+          src={img_url}
+          width={500} 
+          height={500}
+          alt="" 
+        />
+        <div className={styles.like}>
+          <p>Like!</p>
         </div>
         <Link href={`/room/${slug}`} className={`${styles.roomLink} btn-primary`}>
           features
         </Link>
       </div>
-      <p className={styles.roomInfo}>{name}</p>
+      <div>
+        <h3>{name}</h3>
+        <p>Cusco Perú</p>
+        <span>4.94</span>
+        <p>S/ {price} per night </p>
+      </div>
+      
     </article>
   );
 };
-/* 
-Room.propTypes = {
-  room: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired
-  })
-};
- */

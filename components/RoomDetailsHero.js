@@ -8,11 +8,38 @@ export const RoomDetailsHero = ({ imageUrl }) => {
             <h3>Aquí va un titulo espectacular</h3>
             <span>Rating: ⭐⭐⭐⭐</span> <span>100 reviews</span> <span>Perú, Piura, Punta Sal</span>
             <div className={styles.photosContainer}>
-                <img className={styles.main} src={imageUrl} alt="" />
-                <img className={styles.one} src={imageUrl} alt="" />
-                <img className={styles.two} src={imageUrl} alt="" />
-                <img className={styles.three} src={imageUrl} alt="" />
-                <img className={styles.four} src={imageUrl} alt="" />
+                <Image 
+                    className={styles.main}
+                    width={500}
+                    height={500}
+                    src={imageUrl}
+                />
+                <Image 
+                    className={styles.one}
+                    width={500}
+                    height={500}
+                    src={imageUrl}
+                />
+                <Image 
+                    className={styles.two}
+                    width={500}
+                    height={500}
+                    src={imageUrl}
+                />
+                <Image 
+                    className={styles.three}
+                    width={500}
+                    height={500}
+                    src={imageUrl}
+                />
+                <Image 
+                    className={styles.four}
+                    width={500}
+                    height={500}
+                    src={imageUrl}
+                />
+                
+                
             </div>
             
         </div>
