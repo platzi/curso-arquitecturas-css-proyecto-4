@@ -13,30 +13,35 @@ export const RoomDetailsHero = ({ imageUrl }) => {
                     width={500}
                     height={500}
                     src={imageUrl}
+                    alt=''
                 />
                 <Image 
                     className={styles.one}
                     width={500}
                     height={500}
                     src={imageUrl}
+                    alt=''
                 />
                 <Image 
                     className={styles.two}
                     width={500}
                     height={500}
                     src={imageUrl}
+                    alt=''
                 />
                 <Image 
                     className={styles.three}
                     width={500}
                     height={500}
                     src={imageUrl}
+                    alt=''
                 />
                 <Image 
                     className={styles.four}
                     width={500}
                     height={500}
                     src={imageUrl}
+                    alt=''
                 />
                 
                 

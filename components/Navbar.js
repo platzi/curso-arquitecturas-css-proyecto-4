@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from "../public/images/logo.svg"
+import logo from "/public/images/logo.svg"
 import styles from '../styles/Navbar.module.scss'
 
 export const Navbar = () => {
