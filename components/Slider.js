@@ -36,7 +36,7 @@ export const Slider = () => {
                 width={1000}
                 height={500}
                 alt=""
-                className={`${loaded && styles.loaded} ${styles.normal}`}
+                className={`${loaded && styles.loaded} ${styles.img}`}
                 onLoad={() => setLoaded(true)}
             />
         </div>    

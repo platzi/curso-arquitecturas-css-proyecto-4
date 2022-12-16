@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from "/public/images/logo.svg"
 import styles from '../styles/Navbar.module.scss'
 
 export const Navbar = () => {
@@ -10,14 +9,17 @@ export const Navbar = () => {
             
                 <div className={styles.navHeader}>
                     <Link href="/">
-                        <Image src={logo} alt="Beach Resort" />
+                        <Image 
+                            src='/images/logo.svg'
+                            alt="Beach Resort"
+                            width={300}
+                            height={100} 
+                        />
                     </Link>
                     
                     <ul className={styles.navLinks} >
                         <li><Link href='/'>Home</Link></li>
-
                         <li><Link href='/rooms'>Rooms</Link></li>
-
                     </ul>
                 </div>
             
