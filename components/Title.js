@@ -1,4 +1,4 @@
-import styles from '../styles/Title.module.css'
+import styles from '../styles/Title.module.scss'
 
 export const Title = ({ title }) => {
     return (

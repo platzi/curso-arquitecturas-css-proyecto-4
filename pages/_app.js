@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import { Layout } from '../components/Layout'
 import { RoomsProvider } from '../contexts/RoomsContext'
 

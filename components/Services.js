@@ -1,6 +1,6 @@
 import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from "react-icons/fa"
 import { Title } from "./Title"
-import styles from '../styles/Services.module.css'
+import styles from '../styles/Services.module.scss'
 
 export const Services = () =>  {
   

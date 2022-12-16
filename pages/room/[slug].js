@@ -1,18 +1,17 @@
 import { useRouter } from 'next/router'
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
-import { Banner } from '../../components/Banner'
+
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import Link from 'next/link'
-import styles from '../../styles/RoomDetail.module.css'
+import styles from '../../styles/RoomDetails.module.scss'
 
-const RoomDetail = () => {
+const RoomDetails = () => {
     const { rooms } = useContext(RoomsContext)
     const router = useRouter()
     const { slug } = router.query
     const room = rooms.find( room => room.slug === slug)
-    //console.log(slug)
-    //console.log(room.name)
+    
     if (!room) {
         return (
           <div className="error">
@@ -27,43 +26,35 @@ const RoomDetail = () => {
     const {
         name,
         description,
-        //capacity,
-        //size,
         price,
         extras,
-        //breakfast,
-        //pets,
         img_url
       } = room
 
       return (
         <>
-            <RoomDetailsHero imageUrl={img_url} />
+          
+          <RoomDetailsHero imageUrl={img_url} />
                 
-            <section className={styles.singleRoom}>
-            <div className={styles.singleRoomImages}>
-              {/* {defaultImages.map((item, index) => (
-                <img key={index} src={item} alt={name} />
-              ))} */}
-            </div>
+          <section className={styles.singleRoom}>
+          
             <div className={styles.singleRoomInfo}>
+          
               <article className={styles.desc}>
                 <h3>details</h3>
                 <p>{description}</p>
               </article>
+          
               <article className={styles.info}>
+              
                 <h3>info</h3>
                 <h6>price : ${price}</h6>
-                {/* <h6>size : {size} SQFT</h6> */}
-                <h6>
-                  max capacity :
-                  {/* {capacity > 1 ? `${capacity} people` : `${capacity} person`} */}
-                </h6>
-                {/* <h6>{pets ? "pets allowed" : "no pets allowed"}</h6> */}
-                {/* <h6>{breakfast && "free breakfast included"}</h6> */}
+                
               </article>
             </div>
+          
           </section>
+          
           <section className={styles.roomExtras}>
             <h6>extras</h6>
             <ul className={styles.extras}>
@@ -76,4 +67,4 @@ const RoomDetail = () => {
       )
 }
 
-export default RoomDetail
+export default RoomDetails

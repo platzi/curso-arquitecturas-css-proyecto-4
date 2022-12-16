@@ -1,5 +1,5 @@
 import { RoomCard } from "./RoomCard";
-import styles from '../styles/RoomsList.module.css'
+import styles from '../styles/RoomsList.module.scss'
 
 export const RoomsList = ({ rooms }) => {
 

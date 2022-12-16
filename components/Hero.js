@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../styles/Hero.module.css'
+import styles from '../styles/Hero.module.scss'
 
 export const Hero = ({ children, imageUrl }) => {
   

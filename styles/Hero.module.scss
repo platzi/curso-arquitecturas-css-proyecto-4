@@ -1,0 +1,16 @@
+.hero {
+  
+  display: grid;
+  grid-template-areas: 'full';
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  overflow: hidden;
+
+  .img {
+    grid-area: full;
+  
+  }
+
+}
+
