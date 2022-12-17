@@ -1,12 +1,20 @@
 .roomDetailsHero { 
+    
     width: 90%;
-    margin: 0 auto;
-    span {
-        display: inline-block;
-        width: 12rem;
+    margin: 3rem auto;
+    
+    .generalInfo {
+        padding: 1rem;
+        h3 {
+            text-transform: capitalize;
+        }
+        span {
+            display: inline-block;
+            width: 12rem;
+        }
     }
+    
     .photosContainer {
-        
         
         display: grid;
         gap: 1rem;

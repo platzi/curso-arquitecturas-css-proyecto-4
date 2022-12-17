@@ -5,18 +5,19 @@
   top: 0;
   left: 0;
   width: 100%;
-  //padding: 0.75rem 2rem;
+  padding: 0 2rem;
   //background: var(--offWhite);
   background: white;
   z-index: 1;
 
-  .logo {
+  /* .logo {
     //border: 1px solid yellow;
     
-  }
+  } */
 
   a {
     text-decoration: none;
+    color: black;
   }
 
   .navLinks {

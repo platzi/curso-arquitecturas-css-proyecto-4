@@ -34,7 +34,7 @@ const RoomDetails = () => {
       return (
         <>
           
-          <RoomDetailsHero imageUrl={img_url} />
+          <RoomDetailsHero room={room} />
                 
           <section className={styles.singleRoom}>
           
