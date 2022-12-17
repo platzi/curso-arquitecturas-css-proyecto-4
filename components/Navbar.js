@@ -5,23 +5,23 @@ import styles from '../styles/Navbar.module.scss'
 export const Navbar = () => {
 
     return (
+
         <nav className={styles.navbar}>
-            
-                <div className={styles.navHeader}>
-                    <Link href="/">
-                        <Image 
-                            src='/images/logo.svg'
-                            alt="Beach Resort"
-                            width={300}
-                            height={100} 
-                        />
-                    </Link>
+
+            <Link href="/">
+                <Image 
+                    src='/images/logo.svg'
+                    alt="Beach Resort"
+                    width={300}
+                    height={100} 
+                    className={styles.logo}
+                />
+            </Link>
                     
-                    <ul className={styles.navLinks} >
-                        <li><Link href='/'>Home</Link></li>
-                        <li><Link href='/rooms'>Rooms</Link></li>
-                    </ul>
-                </div>
+            <ul className={styles.navLinks} >
+                <li><Link href='/'>Home</Link></li>
+                <li><Link href='/rooms'>Rooms</Link></li>
+            </ul>
             
         </nav>
         

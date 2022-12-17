@@ -17,7 +17,7 @@ export const Slider = () => {
     useEffect( () => {
         const interval = setInterval(() => {
             selectNewImage(selectedIndex);
-          }, 2000);
+          }, 4000);
           return () => clearInterval(interval);
     })
 
@@ -25,7 +25,7 @@ export const Slider = () => {
         setLoaded(false);
         setTimeout(() => {
           setSelectedIndex(index === 3 ? 0 : index + 1);
-        }, 500);
+        }, 300);
     };
 
     return (

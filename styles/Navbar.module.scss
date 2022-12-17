@@ -1,38 +1,35 @@
 .navbar {
-    
+
+  display: flex;    
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.75rem 2rem;
-  background: var(--offWhite);
+  //padding: 0.75rem 2rem;
+  //background: var(--offWhite);
+  background: white;
   z-index: 1;
 
-  .navHeader {
-    display: flex;
-    //justify-content: space-between;
+  .logo {
+    //border: 1px solid yellow;
+    
+  }
 
-    .navLinks {
-      display: flex;
-      overflow: hidden;
-      transition: var(--mainTransition);
-      list-style-type: none;
-  
-      /* a {
-        display: block;
-        text-decoration: none;
-        padding: 1rem 0;
-        color: var(--mainBlack);
-        transition: var(--mainTransition);
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: var(--mainSpacing);
-  
-        :hover {
-          color: var(--primaryColor);
-        }  
-      }  */           
+  a {
+    text-decoration: none;
+  }
+
+  .navLinks {
+    display: flex;
+    margin: 2.5rem 2rem;
+    overflow: hidden;
+    //transition: var(--mainTransition);
+    list-style-type: none; 
+    
+    li {
+      margin: 0 2rem;
+        
     }
-  }    
+    
+  }      
 }
