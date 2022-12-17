@@ -18,11 +18,6 @@ export const Navbar = () => {
                 />
             </Link>
                     
-            <ul className={styles.navLinks} >
-                <li><Link href='/'>Home</Link></li>
-                <li><Link href='/rooms'>Rooms</Link></li>
-            </ul>
-            
         </nav>
         
     );
