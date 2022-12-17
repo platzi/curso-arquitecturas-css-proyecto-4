@@ -1,0 +1,22 @@
+.indicator {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 1rem 1rem;
+    
+    .caption {
+
+    }
+    
+    .rating{
+        display: flex;
+    
+        .outer {
+            background-color: gray;
+            width: 10rem;
+            height: 0.4rem;
+            
+        }
+
+    }
+}

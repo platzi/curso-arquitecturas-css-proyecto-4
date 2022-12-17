@@ -52,7 +52,14 @@
     }
 }
 
-@media screen and (min-width: 992px) {
+.review {
+    .indicators {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 992px) {
 
     .singleRoomInfo,
     .roomExtras {
@@ -66,7 +73,12 @@
       grid-column-gap: 2rem;
     }
 
-    .info {
-      padding-left: 3rem;
+    .review {
+
+        .indicators{
+            grid-template-columns: 1fr;
+        }
+
     }
+    
 }

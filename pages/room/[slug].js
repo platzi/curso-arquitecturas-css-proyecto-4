@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
+import { Indicator } from '../../components/Indicator';
 
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import Link from 'next/link'
@@ -45,12 +46,7 @@ const RoomDetails = () => {
                 <p>{description}</p>
               </article>
           
-              <article className={styles.info}>
               
-                <h3>info</h3>
-                <h6>price : ${price}</h6>
-                
-              </article>
             </div>
           
           </section>
@@ -62,6 +58,25 @@ const RoomDetails = () => {
                 <li key={index}>- {item}</li>
               ))}
             </ul> 
+          </section>
+
+          <section className={styles.review}>
+              <h3>4.75 . 24 reseñas</h3>
+              <div className={styles.indicators}>
+                {
+                  [
+                    {caption: 'Limpieza', rating: 5},
+                    {caption: 'Comunicación', rating: 4},
+                    {caption: 'Llegada', rating: 2},
+                    {caption: 'Fiabilidad', rating: 3},
+                    {caption: 'Ubicación', rating: 2.5},
+                    {caption: 'Precio', rating: 4.9},
+                  ].map((e, i) => {
+                    return <Indicator caption={e.caption} rating={e.rating}/>
+                  })
+                }
+                
+              </div>
           </section>
         </>
       )
