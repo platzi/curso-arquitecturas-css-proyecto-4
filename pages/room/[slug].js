@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Indicator } from '../../components/Indicator';
 import { ReviewsContainer } from '../../components/ReviewsContainer';
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
+import { MapContainer } from '../../components/MapContainer';
 import Link from 'next/link'
 import styles from '../../styles/RoomDetails.module.scss'
 
@@ -91,6 +92,10 @@ const RoomDetails = () => {
 
           <section>
                 <ReviewsContainer reviews={reviews}/>
+          </section>
+
+          <section>
+            <MapContainer />
           </section>
         </>
       )
