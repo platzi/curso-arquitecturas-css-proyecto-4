@@ -18,7 +18,7 @@ export const Indicator = ({caption, rating})=> {
                     </div>
 
                 </div>
-                <span>4.5</span>
+                <span>{rating}</span>
             </div>
         </div>
     )

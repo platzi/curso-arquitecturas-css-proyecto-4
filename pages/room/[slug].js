@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
 import { Indicator } from '../../components/Indicator';
-
+import { ReviewsContainer } from '../../components/ReviewsContainer';
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import Link from 'next/link'
 import styles from '../../styles/RoomDetails.module.scss'
@@ -12,6 +12,16 @@ const RoomDetails = () => {
     const router = useRouter()
     const { slug } = router.query
     const room = rooms.find( room => room.slug === slug)
+
+    const reviews = [
+      {image:'/images/guests_goku.jpg', guestName: 'Goku', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Vegeta', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Bullma', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Goha', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Krilin', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Cell', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+      {image:'/images/guests_goku.jpg', guestName: 'Majin Boo', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
+    ]
     
     if (!room) {
         return (
@@ -77,6 +87,10 @@ const RoomDetails = () => {
                 }
                 
               </div>
+          </section>
+
+          <section>
+                <ReviewsContainer reviews={reviews}/>
           </section>
         </>
       )
