@@ -47,6 +47,7 @@ const RoomDetails = () => {
 
   const center = { lat: -12.4828266, lng: -76.8071609 }
   const zoom = 13
+  
   return (
     <>
       
@@ -99,7 +100,7 @@ const RoomDetails = () => {
       </section>
 
       <section>
-        <MapContainer />
+        <MapContainer center={center} zoom={zoom} />
       </section>
       
     </>
