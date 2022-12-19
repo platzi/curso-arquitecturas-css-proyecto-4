@@ -15,6 +15,7 @@ export const Navbar = () => {
                     width={300}
                     height={100} 
                     className={styles.logo}
+                    priority={true}
                 />
             </Link>
                     

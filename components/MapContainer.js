@@ -1,24 +1,31 @@
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
-import { useMemo } from 'react';
-import styles from '../styles/MapContainer.module.scss';
+import React from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-export const MapContainer = () => {
+const containerStyle = {
+  width: '400px',
+  height: '400px'
+};
 
-    const center = useMemo(() => ({ lat:44, lng: -88 }), [] )
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
 
-    const {isLoaded} = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-    }) 
-
-    if (!isLoaded) return <div>Loading...</div>
-
-    return (
-        <GoogleMap 
-            zoom={10}
-            center={center}
-            mapContainerClassName={styles.mapContainer}
-        >
-            <Marker position={center}/>
-        </GoogleMap>
-    )
+function MapContainer() {
+  return (
+    <LoadScript
+      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+    >
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+      >
+        { /* Child components, such as markers, info windows, etc. */ }
+        <></>
+      </GoogleMap>
+    </LoadScript>
+  )
 }
+
+export default React.memo(MapContainer)
