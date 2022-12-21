@@ -1,0 +1,21 @@
+.booking {
+    display: flex;
+    .form{
+        .adults {
+            display: flex;
+            div {
+                border: 1px solid gray;
+                border-radius: 50%;
+                width: 2rem;
+                height: 2rem;
+                text-align: center;
+                font-size: 1.3rem;
+                user-select: none;
+
+                &:hover {
+                    cursor:pointer;
+                }
+            }
+        }
+    }
+}

@@ -5,10 +5,16 @@
     background-color: black;
     width: 100%;
     padding: 2rem 0 2rem 0;
+
     .menu {
     
-        width: 100%;
+        width: 100%;   
         padding: 2rem 0 0 2rem;
+        
+        li {
+            color: gray;
+            list-style:none;
+        }
     
     }
     
