@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-
+import { DatesPicker } from '../../components/DatesPicker';
+import { Calculator } from '../../components/Calculator';
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
 import { Indicator } from '../../components/Indicator';
@@ -7,7 +8,7 @@ import { ReviewsContainer } from '../../components/ReviewsContainer';
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import MapContainer  from '../../components/MapContainer';
 import Link from 'next/link'
-import styles from '../../styles/RoomDetails.module.scss'
+import styles from '../../styles/RoomDetails.module.scss';
 
 const RoomDetails = () => {
 
@@ -52,6 +53,15 @@ const RoomDetails = () => {
     <>
       
       <RoomDetailsHero room={room} />
+
+      <section className={styles.booking}>
+        <div className={styles.datesPicker}>
+          <DatesPicker />
+        </div>
+        <div>
+          <Calculator />
+        </div>
+      </section>
             
       <section className={styles.singleRoom}>
       
