@@ -1,4 +1,5 @@
-import { format } from 'date-fns';
+//import { format, setDefaultOptions } from 'date-fns';
+//import { useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { useFormik } from 'formik';
 import 'react-day-picker/dist/style.css';
@@ -8,16 +9,12 @@ import styles from '../styles/Booking.module.scss';
 
 export const Booking = () => {
   const [selected, setSelected] = useState();
-
-  /* let footer = <p>Please pick a day.</p>;
-  if (selected) {
-    footer = <p>You picked {format(selected, 'PP')}.</p>;
-  } */
+  const [adults, setAdults] = useState(0);
 
   const formik = useFormik({
     initialValues: {
-      from: '2022-12-04',
-      to: '2022-12-05',
+      from: '',
+      to: '',
       adults: 0,
       childs: 0,
       babys: 0
@@ -43,7 +40,7 @@ export const Booking = () => {
       />
       <form className={styles.form} onSubmit={formik.handleSubmit} >
         <div className={styles.fromTo}>
-          <label htmlFor="from">from</label>
+          <label htmlFor="from">From: </label>
           <input
             id="from"
             name="from"
@@ -52,7 +49,7 @@ export const Booking = () => {
             value={formik.values.from}
           />
 
-          <label htmlFor="to">to</label>
+          <label htmlFor="to">To: </label>
           <input
             id="to"
             name="to"
@@ -64,16 +61,17 @@ export const Booking = () => {
         <div className={styles.adults}>
           <h6>Adults</h6>
           <label htmlFor="adults">Edad: 13 a más</label>
-          <div>-</div>
+          <div onClick={() => setAdults( previous => previous - 1)}>-</div>
           <input
             id="adults"
             name="adults"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.adults}
+            //value={formik.values.adults}
             readOnly
           />
-          <div>+</div>
+          <div onClick={() => setAdults( previous => previous + 1)}>+</div>
 
         </div>
       <button type="submit">Reservar</button>
