@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { Booking } from '../../components/Booking';
 import RoomsContext from '../../contexts/RoomsContext';
 import { useContext } from "react";
+import Image from 'next/image';
 import { Indicator } from '../../components/Indicator';
 import { ReviewsContainer } from '../../components/ReviewsContainer';
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
@@ -48,6 +49,16 @@ const RoomDetails = () => {
   const center = { lat: -12.4828266, lng: -76.8071609 }
   const zoom = 13
   
+  const amenities = [
+    {description: 'Kitchen', icon: 'amenities-kitchen.png'},
+    {description: 'Dedicated workspace' , icon: 'amenities-workspace.png'},
+    {description: 'Shared pool', icon: 'amenities-pool.png'},
+    {description: 'Wifi', icon: 'amenities-wifi.png'},
+    {description: 'Free parking', icon: 'amenities-parking.png'},
+    {description: 'Pets allowed', icon: 'amenities-pets.png'},
+    {description: 'Public or shared beach access', icon: 'amenities-beach.png'},
+    {description: 'Desert  view', icon: 'amenities-desert.png'},
+  ]
   return (
     <>
       
@@ -59,7 +70,7 @@ const RoomDetails = () => {
         </div>
         
       </section>
-            
+
       <section className={styles.singleRoom}>
       
         <div className={styles.singleRoomInfo}>
@@ -71,19 +82,27 @@ const RoomDetails = () => {
       
           
         </div>
-      
-      </section>
-      
-      <section className={styles.roomExtras}>
-        <h6>extras</h6>
-        <ul className={styles.extras}>
-          {extras.map((item, index) => (
-            <li key={index}>- {item}</li>
-          ))}
-        </ul> 
+    
       </section>
 
-      <section className={styles.review}>
+      <section className={styles.amenities}>
+        
+        {
+          amenities.map((a, i) => {
+            return <div key={i}>
+              <Image
+                src={`/images/${a.icon}`}
+                width={40}
+                height={40}
+                alt=''
+              />
+              <p>{a.description}</p>
+            </div>
+          })
+        }
+      </section>
+
+      <section className={styles.indicators}>
           <h3>4.75 . 24 reseñas</h3>
           <div className={styles.indicators}>
             {
@@ -102,11 +121,11 @@ const RoomDetails = () => {
           </div>
       </section>
 
-      <section>
+      <section className={styles.reviews}>
             <ReviewsContainer reviews={reviews}/>
       </section>
 
-      <section>
+      <section className={styles.map}>
         <MapContainer center={center} zoom={zoom} />
       </section>
       

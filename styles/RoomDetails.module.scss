@@ -8,6 +8,45 @@
     }
 }
 
+.amenities {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    width: 80%;
+    margin: 4rem auto;
+    div {
+        margin: 2rem;
+        display: flex;
+
+        p {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.indicators {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid yellow;
+    .indicators {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.reviews {
+    border: 1px purple solid;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.map {
+    border: 1px orange solid;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .singleRoom {
 
     padding: 5rem 0 0 0;
@@ -44,7 +83,7 @@
     }
 }
 
-.roomExtras {
+/* .roomExtras {
     width: 80vw;
     margin: 0 auto 3rem auto;
 
@@ -61,13 +100,7 @@
         letter-spacing: var(--mainSpacing);
     }
 }
-
-.review {
-    .indicators {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
+ */
 
 @media screen and (max-width: 992px) {
 
