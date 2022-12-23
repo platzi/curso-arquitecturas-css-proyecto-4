@@ -8,31 +8,12 @@
     }
 }
 
-.amenities {
-    border: 1px solid blue;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    width: 80%;
-    margin: 4rem auto;
-    div {
-        margin: 2rem;
-        display: flex;
 
-        p {
-            margin-left: 1rem;
-        }
-    }
-}
-
-.indicators {
+.indicatorsContainer {
     width: 80%;
     margin: 0 auto;
     border: 1px solid yellow;
-    .indicators {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+    
 }
 
 .reviews {
