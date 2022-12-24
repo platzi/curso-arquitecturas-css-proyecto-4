@@ -11,7 +11,7 @@ export const Rating = ({caption, rating})=> {
             <div className={styles.caption}>
                 <p>{caption}</p>
             </div>
-            <div className={styles.rating}>
+            <div className={styles.mark}>
                 <div  className={styles.outer} >
                     <div style={barStyle}>
 
