@@ -51,31 +51,37 @@ const RoomDetails = () => {
 
       <section className={styles.section}>
         <h3>Booking</h3>
+        <div className={styles.underline}></div>
         <Booking />
       </section>
 
       <section className={styles.section}>
         <h3>Description</h3>
+        <div className={styles.underline}></div>
         <Description content={description}/>
       </section>
 
       <section className={styles.section}>
         <h3>Amenities</h3>
+        <div className={styles.underline}></div>
         <Amenities />
       </section>
 
       <section className={styles.section}>
         <h3>Ratings</h3>
+        <div className={styles.underline}></div>
         <Ratings />
       </section>
 
       <section className={styles.section}>
         <h3>Reviews</h3>
+        <div className={styles.underline}></div>
         <ReviewsContainer />
       </section>
 
       <section className={styles.section}>
         <h3>Location</h3>
+        <div className={styles.underline}></div>
         <MapContainer center={center} zoom={zoom} />
       </section>
       

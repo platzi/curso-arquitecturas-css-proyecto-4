@@ -11,42 +11,29 @@ export const RoomDetailsHero = ({ room }) => {
             </div>
             
             <div className={styles.photosContainer}>
-                <Image 
-                    className={styles.main}
-                    width={500}
-                    height={500}
-                    src={room.img_url}
-                    alt=''
-                />
-                <Image 
-                    className={styles.one}
-                    width={500}
-                    height={500}
-                    src={room.img_url}
-                    alt=''
-                />
-                <Image 
-                    className={styles.two}
-                    width={500}
-                    height={500}
-                    src={room.img_url}
-                    alt=''
-                />
-                <Image 
-                    className={styles.three}
-                    width={500}
-                    height={500}
-                    src={room.img_url}
-                    alt=''
-                />
-                <Image 
-                    className={styles.four}
-                    width={500}
-                    height={500}
-                    src={room.img_url}
-                    alt=''
-                />
-                    
+                <div className={styles.mainImage}>
+                    <Image 
+                        
+                        width={500}
+                        height={500}
+                        src={room.mainImageUrl}
+                        alt=''
+                    />
+                </div>
+                <div className={styles.secondaryImages}>
+                    {
+                        room.secondaryImagesUrls.map( (img, i) => {
+                            return <Image 
+                                key={i}
+                                width={500}
+                                height={500}
+                                src={img}
+                                alt=''
+                            />
+                        } )
+                        
+                    }
+                </div>
             </div>
             
         </div>

@@ -10,7 +10,6 @@ export const ReviewsContainer = () => {
         {image:'/images/guests_goku.jpg', guestName: 'Goha', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
         {image:'/images/guests_goku.jpg', guestName: 'Krilin', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
         {image:'/images/guests_goku.jpg', guestName: 'Cell', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
-        {image:'/images/guests_goku.jpg', guestName: 'Majin Boo', date:'noviembre 2022', title: 'Viaje en familia', content: 'Un lugar agradable, volveré'},
     ]
 
     return (
