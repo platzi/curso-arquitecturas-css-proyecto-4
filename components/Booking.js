@@ -1,13 +1,10 @@
-import { format, /* setDefaultOptions */ } from 'date-fns';
-//import { useEffect } from 'react';
+import { useState } from 'react';
+
+import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-import { useState, useRef } from 'react';
 import styles from '../styles/Booking.module.scss';
-
-
-//import { previousDay } from 'date-fns';
 
 
 export const Booking = () => {
@@ -60,10 +57,10 @@ export const Booking = () => {
   return (
     <div className={styles.booking}>
       <DayPicker
+      
         mode="range"
         selected={ selectedRange }
         onSelect={ handleRangeSelect }
-        /* footer={footer} */
         numberOfMonths={2}
         pagedNavigation
         showOutsideDays

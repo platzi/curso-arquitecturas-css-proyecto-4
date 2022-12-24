@@ -1,13 +1,13 @@
-import styles from '../styles/Indicator.module.scss';
+import styles from '../styles/Rating.module.scss';
 
-export const Indicator = ({caption, rating})=> {
+export const Rating = ({caption, rating})=> {
     const barStyle = {
         height: '100%',
         backgroundColor: 'black',
         width: `${rating / 5 * 100}%`,
     }
     return (
-        <div className={styles.indicator}>
+        <div className={styles.rating}>
             <div className={styles.caption}>
                 <p>{caption}</p>
             </div>

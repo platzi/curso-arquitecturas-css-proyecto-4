@@ -1,8 +1,8 @@
-import { Indicator } from '../components/Indicator';
-import styles from '../styles/Indicators.module.scss';
+import { Rating } from '../components/Rating';
+import styles from '../styles/Ratings.module.scss';
 
 
-export const Indicators = ()=> {
+export const Ratings = ()=> {
     return (
         <div className={styles.indicators}>
             {
@@ -14,7 +14,7 @@ export const Indicators = ()=> {
                 {caption: 'Ubicación', rating: 2.5},
                 {caption: 'Precio', rating: 4.9},
               ].map((e, i) => {
-                return <Indicator caption={e.caption} rating={e.rating} key={i} />
+                return <Rating caption={e.caption} rating={e.rating} key={i} />
               })
             }
             
