@@ -69,29 +69,40 @@ export const Booking = () => {
         
       />
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h4>USD 540</h4>
-        </div>
-        <div>
+      <form onSubmit={handleSubmit} className={styles.form}>
+      
+        <div className={styles.date}>
           <label htmlFor="checkIn"> Check in: </label>
           <input type="date" value={ formData.checkIn } onChange={ handleChange } id='checkin' readOnly />
+        </div>  
+        
+        <div className={styles.date}>
           <label htmlFor="checkOut"> Check out: </label>
           <input type="date" value={ formData.checkOut } onChange={ handleChange } id='checkout' readOnly />
         </div>
-        <div>
+
+        <div className={styles.quantitySetter}>
           <label htmlFor="adults"> Adults <span>(Age 13+)</span>: </label>
           <input type="number" value={ formData.adults } onChange={ handleChange } id='adults' min={0} max={5} />
         </div>
-        <div>
+        
+        <div className={styles.quantitySetter}>
           <label htmlFor="children">Children <span>(Ages 2-12)</span>: </label>
           <input type="number" value={ formData.children } onChange={ handleChange } id='children' min={0} max={5} />
         </div>
-        <div>
+        
+        <div className={styles.quantitySetter}>
           <label htmlFor="infants">Infants <span>(Under 2)</span>: </label>
           <input type="number" value={ formData.infants } onChange={ handleChange } id='infants' min={0} max={5} />
         </div>
-        <input type="submit" value="Reservar" />    
+
+        <div className={styles.amount}>
+            <span>7 noches</span>
+            <span>USD 50.00</span>
+        </div>
+        
+        <input className={styles.button} type="submit" value="Reservar" />    
+      
       </form>
         
     </div>

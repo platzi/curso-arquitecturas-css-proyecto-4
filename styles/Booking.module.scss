@@ -1,13 +1,47 @@
 .booking {
+    
     display: flex;
-    .form{
-        .adults {
+    justify-content: space-around;
+    
+    .dayPicker {
+        //border: 1px solid purple;
+        margin: 1rem;
+    }
+
+    .form {
+
+        //border: 1px solid blue;
+        display: flex;
+        margin: 1rem;
+        padding: 0 1rem;
+        justify-content: center;
+        flex-direction: column;
+        
+
+        .date {
             display: flex;
+            justify-content: space-between;
+            height: 2rem;
+            align-items: center;
+
+            input {
+                text-align: right;
+                border: 1px solid gray;
+            }
+        }
+        
+        .quantitySetter {
+        
+            display: flex;
+            justify-content: space-between;
+            height: 2rem;
+            align-items: center;
+        
             div {
                 border: 1px solid gray;
                 border-radius: 50%;
                 width: 2rem;
-                height: 2rem;
+                
                 text-align: center;
                 font-size: 1.3rem;
                 user-select: none;
@@ -16,13 +50,28 @@
                     cursor:pointer;
                 }
             }
+        
             input {
-                width: 2rem;
-                height: 2rem;
-                text-align: center;
-                border: none;
-                font-size: 1.3rem;
+                //width: 4rem;
+                //height: 3rem;
+                text-align: right;
+                //border: none;
+                //font-size: 1rem;
             }
+        }
+        .amount {
+            display: flex;
+            justify-content: space-between;
+            height: 2rem;
+            margin: 1rem 0;
+            align-items: center;
+            font-weight: bolder;
+        }
+
+        .button {
+            margin: 1rem auto 0;
+            width: 18rem;
+            height: 3rem;
         }
     }
 }

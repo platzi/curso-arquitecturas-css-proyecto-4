@@ -5,6 +5,7 @@ export const RoomDetailsHero = ({ room }) => {
     
     return (
         <div className={styles.roomDetailsHero}>
+            
             <div className={styles.generalInfo}>
                 <h3>{room.name}</h3>
                 <span>Rating: ⭐⭐⭐⭐</span><span>100 reviews</span><span>Perú, Piura, Punta Sal</span>
