@@ -1,4 +1,7 @@
-.indicators {
+.ratings {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    //justify-content: space-between;
 }

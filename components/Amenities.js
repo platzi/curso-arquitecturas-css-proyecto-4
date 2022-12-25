@@ -12,7 +12,7 @@ export const Amenities = ()=> {
         {description: 'Wifi', icon: 'amenities-wifi.png'},
         {description: 'Free parking', icon: 'amenities-parking.png'},
         {description: 'Pets allowed', icon: 'amenities-pets.png'},
-        {description: 'Public or shared beach access', icon: 'amenities-beach.png'},
+        {description: 'Public beach access', icon: 'amenities-beach.png'},
         {description: 'Desert  view', icon: 'amenities-desert.png'},
         {description: 'Beach  view', icon: 'amenities-beach-view.png'},
   

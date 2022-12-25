@@ -5,11 +5,16 @@
     background-color: black;
     width: 100%;
     padding: 2rem 0 2rem 0;
-
+    
     .menu {
     
         width: 100%;   
         padding: 2rem 0 0 2rem;
+
+        h6 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
         
         li {
             color: gray;

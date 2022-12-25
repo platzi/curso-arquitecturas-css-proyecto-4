@@ -2,6 +2,7 @@ import styles from '../styles/Review.module.scss';
 import Image from 'next/image';
 
 export const Review = ({review}) => {
+    
     const {
         image,
         guestName,
@@ -9,6 +10,7 @@ export const Review = ({review}) => {
         title,
         content
     } = review
+
     return (
         <div className={styles.review}>
             <div className={styles.header}>
@@ -23,7 +25,7 @@ export const Review = ({review}) => {
                 <div>
                     <h6>{guestName}</h6>
                     <div>
-                        <span>{date}</span><span>{title}</span>    
+                        <p>{date.concat(' - ', title)}</p>    
                     </div>
                     
                 </div>

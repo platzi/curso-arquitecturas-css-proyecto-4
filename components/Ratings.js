@@ -4,17 +4,17 @@ import styles from '../styles/Ratings.module.scss';
 
 export const Ratings = ()=> {
     return (
-        <div className={styles.indicators}>
+        <div className={styles.ratings}>
             {
               [
-                {caption: 'Limpieza', rating: 5},
-                {caption: 'Comunicación', rating: 4},
-                {caption: 'Llegada', rating: 2},
-                {caption: 'Fiabilidad', rating: 3},
-                {caption: 'Ubicación', rating: 2.5},
-                {caption: 'Precio', rating: 4.9},
+                {caption: 'Limpieza', mark: 5},
+                {caption: 'Comunicación', mark: 4},
+                {caption: 'Llegada', mark: 2},
+                {caption: 'Fiabilidad', mark: 3},
+                {caption: 'Ubicación', mark: 2.5},
+                {caption: 'Precio', mark: 4.9},
               ].map((e, i) => {
-                return <Rating caption={e.caption} rating={e.rating} key={i} />
+                return <Rating caption={e.caption} mark={e.mark.toFixed(1)} key={i} />
               })
             }
             

@@ -1,21 +1,25 @@
 .rating {
+
+    //border: 1px solid blue;
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    margin: 1rem 1rem;
-    
-    .caption {
-
-    }
-    
+    align-content: center;
+    width: 90%;
+    margin: 0 auto;
+        
     .mark {
+        //border: 1px solid pink;
         display: flex;
-    
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+            
         .outer {
             background-color: gray;
-            width: 10rem;
-            height: 0.4rem;
-            
+            width: 70%;
+            height: 0.5rem;
+            border-radius: 5px;
+            overflow: hidden;    
         }
 
     }

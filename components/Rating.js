@@ -1,10 +1,10 @@
 import styles from '../styles/Rating.module.scss';
 
-export const Rating = ({caption, rating})=> {
+export const Rating = ({caption, mark})=> {
     const barStyle = {
         height: '100%',
         backgroundColor: 'black',
-        width: `${rating / 5 * 100}%`,
+        width: `${mark / 5 * 100}%`,
     }
     return (
         <div className={styles.rating}>
@@ -16,9 +16,8 @@ export const Rating = ({caption, rating})=> {
                     <div style={barStyle}>
 
                     </div>
-
                 </div>
-                <span>{rating}</span>
+                <span>{mark}</span>
             </div>
         </div>
     )

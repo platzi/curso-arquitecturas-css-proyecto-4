@@ -1,9 +1,10 @@
 import styles from '../styles/Title.module.scss'
 
-export const Title = ({ title }) => {
+export const Title = ({ text }) => {
     return (
-        <div className={styles.sectionTitle}>
-            <h4>{title}</h4>
+        <div className={styles.title}>
+            <h3>{text}</h3>
+            <div className={styles.underline}></div>
         </div>
     );
 };

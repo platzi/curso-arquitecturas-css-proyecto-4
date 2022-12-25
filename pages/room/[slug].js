@@ -10,7 +10,9 @@ import { Description } from '../../components/Description';
 import { Ratings } from '../../components/Ratings';
 import { Amenities } from '../../components/Amenities';
 import { ReviewsContainer } from '../../components/ReviewsContainer';
+
 import MapContainer  from '../../components/MapContainer';
+import { Title } from '../../components/Title';
 
 import styles from '../../styles/RoomDetails.module.scss';
 
@@ -23,9 +25,9 @@ const RoomDetails = () => {
     
   if (!room) {
       return (
-        <div className="error">
+        <div className={styles.error}>
           <h3> no such room could be found...</h3>
-          <Link href="/rooms">
+          <Link href="/">
             back to rooms
           </Link>
         </div>
@@ -50,38 +52,32 @@ const RoomDetails = () => {
       <RoomDetailsHero room={room} />
 
       <section className={styles.section}>
-        <h3>Booking</h3>
-        <div className={styles.underline}></div>
+        <Title text='Booking' />
         <Booking />
       </section>
 
       <section className={styles.section}>
-        <h3>Description</h3>
-        <div className={styles.underline}></div>
+        <Title text='Description' />
         <Description content={description}/>
       </section>
 
       <section className={styles.section}>
-        <h3>Amenities</h3>
-        <div className={styles.underline}></div>
+        <Title text='Amenities' />
         <Amenities />
       </section>
 
       <section className={styles.section}>
-        <h3>Ratings</h3>
-        <div className={styles.underline}></div>
+        <Title text='Ratings' />
         <Ratings />
       </section>
 
       <section className={styles.section}>
-        <h3>Reviews</h3>
-        <div className={styles.underline}></div>
+        <Title text='Reviews' />
         <ReviewsContainer />
       </section>
 
       <section className={styles.section}>
-        <h3>Location</h3>
-        <div className={styles.underline}></div>
+        <Title text='Location' />
         <MapContainer center={center} zoom={zoom} />
       </section>
       
