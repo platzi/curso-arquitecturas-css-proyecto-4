@@ -37,12 +37,14 @@ const RoomDetails = () => {
   const {
     name,
     description,
+    coordinates: center,
+    location,
     price,
     extras,
     img_url
   } = room
 
-  const center = { lat: -12.4828266, lng: -76.8071609 }
+  //const center = { lat: -12.4828266, lng: -76.8071609 }
   const zoom = 13
   
   

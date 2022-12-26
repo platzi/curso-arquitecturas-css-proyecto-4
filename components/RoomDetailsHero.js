@@ -7,8 +7,12 @@ export const RoomDetailsHero = ({ room }) => {
         <div className={styles.roomDetailsHero}>
             
             <div className={styles.generalInfo}>
-                <h3>{room.name}</h3>
-                <span>Rating: ⭐⭐⭐⭐</span><span>100 reviews</span><span>Perú, Piura, Punta Sal</span>
+                <div>
+                    <h3>{room.name}</h3>
+                    <a href={room.website}>{room.website}</a>
+                </div>
+                
+                <span>Rating: ⭐⭐⭐⭐</span><span>100 reviews</span><span>{room.location}</span>
             </div>
             
             <div className={styles.photosContainer}>

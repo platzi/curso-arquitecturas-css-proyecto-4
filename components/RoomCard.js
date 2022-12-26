@@ -5,14 +5,14 @@ import styles from '../styles/RoomCard.module.scss'
 export const RoomCard = ({room}) => {
 
 
-  const { name, slug, price, img_url } = room;
+  const { name, slug, price, mainImageUrl } = room;
 
   return (
     <article className={styles.room}>
       <Link href={`/room/${slug}`} className={styles.roomLink}>
         <div className={styles.imgContainer}>
           <Image
-            src={img_url}
+            src={mainImageUrl}
             width={500} 
             height={500}
             alt="" 
