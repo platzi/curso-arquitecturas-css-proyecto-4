@@ -2,36 +2,38 @@
     
     display: flex;
     justify-content: space-around;
-    
-    .dayPicker {
-        //border: 1px solid purple;
-        margin: 1rem;
-    }
 
     .form {
-
         //border: 1px solid blue;
         display: flex;
         margin: 1rem;
         padding: 0 1rem;
         justify-content: center;
         flex-direction: column;
-        
+        font-size: 0.8rem;
 
-        .date {
+        .range {
+            
             display: flex;
             justify-content: space-between;
-            height: 2rem;
-            align-items: center;
+            height: 3rem;
 
-            input {
-                text-align: right;
-                border: 1px solid gray;
+            .date {
+                display: flex;
+                flex-direction: column;
+                //justify-content: space-between;
+                
+                //align-items: center;
+    
+                input {
+                    text-align: right;
+                    //border: 1px solid gray;
+                }
             }
         }
-        
+
         .quantitySetter {
-        
+
             display: flex;
             justify-content: space-between;
             height: 2rem;

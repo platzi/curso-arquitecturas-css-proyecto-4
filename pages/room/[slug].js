@@ -44,23 +44,16 @@ const RoomDetails = () => {
     img_url
   } = room
 
-  //const center = { lat: -12.4828266, lng: -76.8071609 }
   const zoom = 13
-  
-  
+    
   return (
     <>
       
       <RoomDetailsHero room={room} />
 
-      <section className={styles.section}>
-        <Title text='Booking' />
-        <Booking />
-      </section>
-
-      <section className={styles.section}>
-        <Title text='Description' />
+      <section className={styles.intro}>
         <Description content={description}/>
+        <Booking />
       </section>
 
       <section className={styles.section}>
