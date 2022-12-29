@@ -5,6 +5,7 @@
     justify-content: center;
     width: 100%;
     
+    
     div {
         //border: 1px solid yellow;
         margin: 1rem 2rem;
@@ -14,4 +15,12 @@
             margin-left: 1rem;
         }
     }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .amenities {
+        grid-template-columns: 1fr 1fr;
+            
+    }    
 }
