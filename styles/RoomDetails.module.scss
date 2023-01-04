@@ -24,3 +24,19 @@
     text-transform: uppercase;
     margin: 5rem 0;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .intro {
+          
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1rem;
+        width: 100%;
+    } 
+    
+    .section {
+        width: 100%;       
+        padding: 1rem 1rem;
+    }
+}

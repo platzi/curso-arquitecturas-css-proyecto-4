@@ -13,6 +13,7 @@ export const RoomsList = ({ rooms }) => {
 
     return (
         <section className={styles.roomsList}>
+            
             <div className={styles.roomsListCenter}>
                 {rooms.map(item => {
                 return <RoomCard key={item.id} room={item} />;
