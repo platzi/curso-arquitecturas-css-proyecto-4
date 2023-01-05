@@ -40,8 +40,8 @@ const RoomDetails = () => {
     coordinates: center,
     location,
     price,
-    extras,
-    img_url
+    website,
+    imagesUrls
   } = room
 
   const zoom = 13
@@ -49,7 +49,7 @@ const RoomDetails = () => {
   return (
     <>
       
-      <RoomDetailsHero room={room} />
+      <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
 
       <section className={styles.intro}>
         <Description content={description}/>

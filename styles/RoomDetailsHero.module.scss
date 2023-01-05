@@ -17,6 +17,11 @@
         }
     }
 
+    .carousel {
+        display: none;  
+        
+    }
+
     .photosContainer {
         //border: 1px solid yellow;
         display: flex;
@@ -49,6 +54,22 @@
             }
         }
         
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    .roomDetailsHero {
+        
+        .photosContainer {
+            display: none;
+        }
+
+        .carousel {
+            display: block;
+            
+        }
     }
     
 }
