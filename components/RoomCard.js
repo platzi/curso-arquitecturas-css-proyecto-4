@@ -17,9 +17,7 @@ export const RoomCard = ({room}) => {
             height={500}
             alt="" 
           />
-          <div className={styles.like}>
-            <p>Like!</p>
-          </div>
+          
         </div>
         <div>
           <h3>{name}</h3>

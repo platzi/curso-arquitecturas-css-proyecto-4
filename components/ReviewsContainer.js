@@ -16,7 +16,7 @@ export const ReviewsContainer = () => {
         <div className={styles.reviewsContainer}>
             {
                 reviews.map( (r, i) => {
-                    return <Review review={r} key={i} />
+                    return <Review key={i} review={r} hidden={i > 3}/>
                 })
             }
         </div>

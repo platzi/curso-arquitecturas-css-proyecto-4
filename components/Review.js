@@ -1,7 +1,7 @@
 import styles from '../styles/Review.module.scss';
 import Image from 'next/image';
 
-export const Review = ({review}) => {
+export const Review = ({review, hidden}) => {
     
     const {
         image,
@@ -12,7 +12,7 @@ export const Review = ({review}) => {
     } = review
 
     return (
-        <div className={styles.review}>
+        <div className={`${styles.review} ${hidden && styles.mobileHidden}`}>
             <div className={styles.header}>
 
                 <Image
