@@ -1,12 +1,10 @@
-
+import Head from 'next/head'
 import { RoomsContainer } from '../components/RoomsContainer'
 import { Slider } from '../components/Slider'
 
 
-export default function Home({places = []}) {
+export default function Home() {
 
-  //console.log('Printing...', places.length)
-  if (places.length === 0) return <h1>No hay datos</h1>
   const sliderConfig = {
     images: [
       'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80',
@@ -23,21 +21,8 @@ export default function Home({places = []}) {
       
       <Slider config={sliderConfig}/>
 
-      <RoomsContainer places={places}/>
-      
+      <RoomsContainer />
 
     </div>
   )
-}
-
-export async function getServerSideProps() {
-
-  const res = await fetch('http://localhost:3000/api/places/')
-  const places = await res.json()
-  
-  return {
-    props: {
-      places,
-    }
-  }
 }

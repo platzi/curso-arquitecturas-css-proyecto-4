@@ -15,7 +15,7 @@ export default function Seeding(){
                 },
                 body: JSON.stringify(rooms)
             })
-            router.push('/')
+            //router.push('/')
         } catch (error) {
             console.log('Failed to add place')
         }

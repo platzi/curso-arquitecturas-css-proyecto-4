@@ -1,7 +1,8 @@
 import dbConnect from '../../../lib/dbConnect'
 import Place from '../../../models/Place'
 
-export default async function handler(req, res) {
+export default async (req, res) => {
+    
     const {method} = req
 
     await dbConnect()
@@ -10,7 +11,8 @@ export default async function handler(req, res) {
         case 'GET':
             try {
                 const places = await Place.find({})
-                res.status(200).json({success: true, data: places})
+                //res.status(200).json({success: true, data: places})
+                res.status(200).json(places)
             } catch (error) {
                 res.status(400).json({success: false})
             }
