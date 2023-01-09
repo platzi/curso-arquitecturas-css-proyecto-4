@@ -1,11 +1,8 @@
-
-import { RoomsContainer } from '../components/RoomsContainer'
+import { RoomsList } from '../components/RoomsList'
 import { Slider } from '../components/Slider'
-
 
 export default function Home({places = []}) {
 
-  //console.log('Printing...', places.length)
   if (places.length === 0) return <h1>No hay datos</h1>
   const sliderConfig = {
     images: [
@@ -22,9 +19,7 @@ export default function Home({places = []}) {
     <div className=''>
       
       <Slider config={sliderConfig}/>
-
-      <RoomsContainer places={places}/>
-      
+      <RoomsList rooms={places}/>
 
     </div>
   )

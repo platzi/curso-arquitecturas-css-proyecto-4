@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
-import { useContext } from "react";
+import { useState, useEffect } from 'react';
 import Link from 'next/link'
-
-import RoomsContext from '../../contexts/RoomsContext';
 
 import { RoomDetailsHero } from '../../components/RoomDetailsHero';
 import { Booking } from '../../components/Booking';
@@ -16,13 +14,28 @@ import { Title } from '../../components/Title';
 
 import styles from '../../styles/RoomDetails.module.scss';
 
+
+
 const RoomDetails = () => {
 
-  const { rooms } = useContext(RoomsContext)
   const router = useRouter()
   const { slug } = router.query
-  const room = rooms.find( room => room.slug === slug)
-    
+  //const room = rooms.find( room => room.slug === slug)
+  const [room, setRoom ] = useState([])
+  
+  useEffect(() => {
+    console.log('Executing useEffect...', slug)
+    //setLoading(true)
+    fetch(`/api/places/${slug}`)
+    //fetch(/api/places/[slug])
+      .then((res) => res.json())
+      .then((data) => {
+        setRoom(data)
+        //setLoading(false)
+        
+      })
+  }, [])
+
   if (!room) {
       return (
         <div className={styles.error}>
@@ -49,8 +62,8 @@ const RoomDetails = () => {
   return (
     <>
       
-      <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
-
+      {/* <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/> */}
+      {/* <p>{imagesUrls}</p> */}
       <section className={styles.intro}>
         <Description content={description}/>
         <Booking />
