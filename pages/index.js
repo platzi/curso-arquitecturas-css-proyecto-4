@@ -25,6 +25,7 @@ export default function Home({places = []}) {
   )
 }
 
+//export async function getStaticProps() {
 export async function getServerSideProps() {
 
   const res = await fetch('http://localhost:3000/api/places/')

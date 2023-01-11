@@ -16,7 +16,7 @@ export const RoomsList = ({ rooms }) => {
             
             <div className={styles.roomsListCenter}>
                 {rooms.map(item => (
-                    <RoomCard key={item._id} room={item} />
+                    <RoomCard key={item._id} place={item} />
                 ))}
             </div>
         </section>

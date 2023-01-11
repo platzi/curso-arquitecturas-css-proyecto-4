@@ -1,7 +1,7 @@
 import dbConnect from '../../../lib/dbConnect'
 import Place from '../../../models/Place'
 
-export default async (req, res) => {
+export default async function handler(req, res){
     
     const {method} = req
 

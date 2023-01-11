@@ -1,8 +1,10 @@
 import dbConnect from "../../../lib/dbConnect";
 import Place from "../../../models/Place";
 
-export default async function PlaceHandler(req, res) {
-    await dbConnect()
+export default async function handler(req, res) {
+    
+    dbConnect()
+    
     const {
         method,
         query: {slug}
@@ -14,7 +16,7 @@ export default async function PlaceHandler(req, res) {
         const place = await Place.findOne({slug});
         if (!place) return res.status(404).json({ msg: "Place does not exists" });
         return res.status(200).json(place);
-      } catch (error) {
+    } catch (error) {
         return res.status(400).json({ msg: error.message });
     }
 }
