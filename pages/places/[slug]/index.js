@@ -1,3 +1,4 @@
+import {server} from '../../../config'
 import Link from 'next/link'
 
 import { RoomDetailsHero } from '../../../components/RoomDetailsHero';
@@ -73,7 +74,7 @@ export default function RoomDetails({ place }) {
 
 export async function getServerSideProps({ query: { slug }}) {
 
-  const res = await fetch(`http://localhost:3000/api/places/${slug}`)
+  const res = await fetch(`${server}api/places/${slug}`)
 
   const place = await res.json();
 

@@ -1,3 +1,4 @@
+import {server} from '../config'
 import { RoomsList } from '../components/RoomsList'
 import { Slider } from '../components/Slider'
 
@@ -28,7 +29,7 @@ export default function Home({places = []}) {
 //export async function getStaticProps() {
 export async function getServerSideProps() {
 
-  const res = await fetch('http://localhost:3000/api/places/')
+  const res = await fetch(`${server}api/places/`)
   const places = await res.json()
   
   return {
