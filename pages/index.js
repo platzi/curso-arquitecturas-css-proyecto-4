@@ -21,8 +21,9 @@ export default function Home(/* {places = []} */) {
       
       {/* <Slider config={sliderConfig}/> */}
       {/* <RoomsList rooms={places}/> */}
-      <h1>Hola mundo Cruel</h1>
+      <h1>Hola mundo   cccc Cruel</h1>
       <p>{process.env.NODE_ENV }</p>
+      {/* <p>{process.env.MONGODB_URI }</p> */}
       {/* <h1>{places.length}</h1> */}
     </div>
   )
