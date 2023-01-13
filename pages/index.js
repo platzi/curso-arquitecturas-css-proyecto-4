@@ -1,8 +1,8 @@
-import {server} from '../config'
+//import {server} from '../config'
 /* import { RoomsList } from '../components/RoomsList' */
 /* import { Slider } from '../components/Slider' */
 
-export default function Home({places = []}) {
+export default function Home(/* {places = []} */) {
 
   /* if (places.length === 0) return <h1>No hay datos</h1>
   const sliderConfig = {
@@ -21,14 +21,15 @@ export default function Home({places = []}) {
       
       {/* <Slider config={sliderConfig}/> */}
       {/* <RoomsList rooms={places}/> */}
-      <h1>Hola mundo</h1>
-      <h1>{places.length}</h1>
+      <h1>Hola mundo Cruel</h1>
+      <p>{process.env.NODE_ENV }</p>
+      {/* <h1>{places.length}</h1> */}
     </div>
   )
 }
 
 //export async function getStaticProps() {
-export async function getServerSideProps() {
+/* export async function getServerSideProps() {
 
   const res = await fetch(`${server}api/places/`)
   const places = await res.json()
@@ -38,4 +39,4 @@ export async function getServerSideProps() {
       places,
     }
   }
-}
+} */
