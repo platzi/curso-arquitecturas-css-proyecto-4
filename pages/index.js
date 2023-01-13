@@ -21,7 +21,7 @@ export default function Home({places = []}) {
       
       {/* <Slider config={sliderConfig}/> */}
       {/* <RoomsList rooms={places}/> */}
-      <h1>Hola</h1>
+      <h1>Hola mundo</h1>
       <h1>{places.length}</h1>
     </div>
   )
