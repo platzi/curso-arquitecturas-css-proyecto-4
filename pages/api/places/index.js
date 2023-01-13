@@ -12,7 +12,7 @@ export default async function handler(req, res){
             try {
                 const places = await Place.find({})
                 //res.status(200).json({success: true, data: places})
-                res.status(200).json({places})
+                res.status(200).json(places)
             } catch (error) {
                 res.status(400).json({success: false})
             }
