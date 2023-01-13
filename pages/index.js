@@ -1,10 +1,10 @@
 import {server} from '../config'
-/* import { RoomsList } from '../components/RoomsList' */
-/* import { Slider } from '../components/Slider' */
+import { RoomsList } from '../components/RoomsList'
+import { Slider } from '../components/Slider'
 
 export default function Home({places = []}) {
 
-  /* if (places.length === 0) return <h1>No hay datos</h1>
+  if (places.length === 0) return <h1>No hay datos</h1>
   const sliderConfig = {
     images: [
       'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80',
@@ -14,17 +14,14 @@ export default function Home({places = []}) {
     ], 
     width: 1000,
     height: 700
-  } */
+  }
   
   return (
     <div className=''>
       
-      {/* <Slider config={sliderConfig}/> */}
-      {/* <RoomsList rooms={places}/> */}
+      <Slider config={sliderConfig}/>
+      <RoomsList rooms={places}/>
       
-      <h1>{process.env.NODE_ENV }</h1>
-      {/* <p>{process.env.MONGODB_URI }</p> */}
-      <h1>{places.length}</h1>
     </div>
   )
 }
