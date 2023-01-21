@@ -7,18 +7,21 @@ export const Navbar = () => {
     return (
 
         <nav className={styles.navbar}>
-
-            <Link href="/">
-                <Image 
-                    src='/images/logo.svg'
-                    alt="Beach Resort"
-                    width={300}
-                    height={100} 
-                    className={styles.logo}
-                    priority={true}
-                />
-            </Link>
-                    
+            <div className={styles.navbarContainer}>
+                <Link href="/">
+                    <div className={styles.logoContainer}>
+                        <Image 
+                            src='/images/logo.png'
+                            alt="Peruvian Beaches"
+                            width={2000}
+                            height={2000} 
+                            className={styles.logo}
+                            priority={true}
+                        />
+                        
+                    </div>
+                </Link>
+            </div>
         </nav>
         
     );
