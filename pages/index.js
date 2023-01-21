@@ -1,4 +1,4 @@
-import {server} from '../config'
+import { server } from '../config'
 import { RoomsList } from '../components/RoomsList'
 import { Slider } from '../components/Slider'
 

@@ -1,4 +1,4 @@
-import {server} from '../../../config'
+import { server } from '../../../config'
 import Link from 'next/link'
 
 import { RoomDetailsHero } from '../../../components/RoomDetailsHero';
