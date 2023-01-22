@@ -1,7 +1,8 @@
 .roomDetailsHero { 
     
-    width: 90%;
+    width: 100%;
     margin: 8rem auto 3rem;
+    // border: 1px solid orange;
     
     .generalInfo {
 
@@ -18,8 +19,7 @@
     }
 
     .carousel {
-        display: none;  
-        
+        display: none;     
     }
 
     .photosContainer {
@@ -80,5 +80,5 @@
             
         }
     }
-    
+   
 }

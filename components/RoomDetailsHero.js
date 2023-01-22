@@ -5,6 +5,7 @@ import styles from '../styles/RoomDetailsHero.module.scss';
 export const RoomDetailsHero = ({ images, name, website, location }) => {
     //console.log(images)
     return (
+    
         <div className={styles.roomDetailsHero}>
             
             <div className={styles.generalInfo}>

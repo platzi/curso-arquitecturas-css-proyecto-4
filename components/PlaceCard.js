@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import Image from "next/image";
-import styles from '../styles/RoomCard.module.scss'
+import styles from '../styles/PlaceCard.module.scss'
 
-export const RoomCard = ({place}) => {
+export const PlaceCard = ({place}) => {
 
 
   const { name, slug, price, imagesUrls, generalRating, location } = place;
 
   return (
-    <article className={styles.room}>
-      <Link href={`/places/${slug}`} className={styles.roomLink}>
+    <article className={styles.place}>
+      <Link href={`/places/${slug}`} className={styles.placeLink}>
         <div className={styles.imgContainer}>
           <Image
             src={imagesUrls[0]}

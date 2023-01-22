@@ -3,16 +3,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-around;
-    width: 85%;
+    width: 100%;
     margin: 2rem auto;
     padding: 1rem 6rem;
-
+    //border: 1px solid red;
 }
 
 .section {
 
-    //border: 1px solid red;    
-    width: 85%;
+    // border: 1px solid pink;    
+    width: 100%;
     margin: 2rem auto;
     padding: 1rem 6rem;
 
