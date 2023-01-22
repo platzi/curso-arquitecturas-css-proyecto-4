@@ -2,69 +2,44 @@
     
     display: flex;
     justify-content: space-around;
-
+    width: 100%;
+    
     .form {
         //border: 1px solid blue;
         display: flex;
         margin: 1rem;
+        width: 100%;
         padding: 0 1rem;
         justify-content: center;
         flex-direction: column;
         font-size: 0.8rem;
 
-        .errorMessage {
-            color: red;
-            font-size: 0.6rem;
-        }
-
-        .range {
-            
-            display: flex;
-            justify-content: space-between;
-            height: 3rem;
-
-            .date {
-                display: flex;
-                flex-direction: column;
-                //justify-content: space-between;
-                
-                //align-items: center;
-    
-                input {
-                    text-align: right;
-                    //border: 1px solid gray;
-                }
-            }
-        }
-
-        .quantitySetter {
+        .formField {
 
             display: flex;
-            justify-content: space-between;
-            height: 2rem;
-            align-items: center;
+            flex-direction: column;
+            //align-items: space-between;
+            height: 2.5rem;
+            //align-items: center;
         
             div {
-                border: 1px solid gray;
-                border-radius: 50%;
-                width: 2rem;
-                
-                text-align: center;
-                font-size: 1.3rem;
-                user-select: none;
 
-                &:hover {
-                    cursor:pointer;
+                display: flex;
+                justify-content: space-between;  
+                
+                input {
+                    width: 8rem;
+                    text-align: right;
+                    border: 1px solid gray;
                 }
             }
-        
-            input {
-                //width: 4rem;
-                //height: 3rem;
-                text-align: right;
-                //border: none;
-                //font-size: 1rem;
+
+            .errorMessage {
+                color: red;
+                font-size: 0.6rem;
+                align-self: center;
             }
+            
         }
         .amount {
             display: flex;

@@ -25,58 +25,69 @@ export const Booking = () => {
     <div className={styles.booking}>
       
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <div className={styles.range}>
-          <div className={styles.date}>
-            <label htmlFor="checkin"> Check in: </label>
+        
+        <div className={styles.formField}>
+          <div>
+            <label htmlFor="checkin"> Check in date: </label>
             <input 
               {...register("checkin", { required: true })} 
               type="date" 
               onChange={ handleChange }  
             />
-            {errors.checkin?.type === 'required' && errorMessage("This field is required")}
-          </div>  
-          
-          <div className={styles.date}>
-            <label htmlFor="checkout"> Check out: </label>
+          </div>
+          {errors.checkin?.type === 'required' && errorMessage("This field is required")}
+        </div>  
+        
+        <div className={styles.formField}>
+          <div>
+            <label htmlFor="checkout"> Check out date: </label>
             <input
               {...register("checkout", { required: true })} 
               type="date" 
               onChange={ handleChange } 
             />
-            {errors.checkout?.type === 'required' && errorMessage("This field is required")}
           </div>
+          {errors.checkout?.type === 'required' && errorMessage("This field is required")}
         </div>
         
-        <div className={styles.quantitySetter}>
-          <label htmlFor="adults"> Adults <span>(Age 13+)</span>: </label>
-          <input 
-            {...register("adults", { required: true, min: 0, max: 5 })} 
-            type="number" 
-            onChange={ handleChange }
-            defaultValue={0} 
-          />
+        <div className={styles.formField}>
+          <div>
+            <label htmlFor="adults"> Adults <span>(Age 13+)</span>: </label>
+            <input 
+              {...register("adults", { required: true, min: 0, max: 5 })} 
+              type="number" 
+              onChange={ handleChange }
+              defaultValue={0} 
+            />
+          </div>
           {errors.adults?.type === 'required' && errorMessage("This field is required")}
+            
         </div>
         
-        <div className={styles.quantitySetter}>
-          <label htmlFor="children">Children <span>(Ages 2-12)</span>: </label>
-          <input 
-            {...register("children", { required: true, min: 0, max: 5 })} 
-            type="number" 
-            onChange={ handleChange }
-            defaultValue={0} 
-          />
+        <div className={styles.formField}>
+          <div>
+            <label htmlFor="children">Children <span>(Ages 2-12)</span>: </label>
+            <input 
+              {...register("children", { required: true, min: 0, max: 5 })} 
+              type="number" 
+              onChange={ handleChange }
+              defaultValue={0} 
+            />
+          </div>
           {errors.children?.type === 'required' && errorMessage("This field is required")}
         </div>
         
-        <div className={styles.quantitySetter}>
-          <label htmlFor="infants">Infants <span>(Under 2)</span>: </label>
-          <input 
-            {...register("infants", { required: true, min: 0, max: 5 })} 
-            type="number" 
-            onChange={ handleChange } 
-            defaultValue={0}
-          />
+        <div className={styles.formField}>
+          <div>
+            <label htmlFor="infants">Infants <span>(Under 2)</span>: </label>
+            <input 
+              {...register("infants", { required: true, min: 0, max: 5 })} 
+              type="number" 
+              onChange={ handleChange } 
+              defaultValue={0}
+            />
+          </div>
+          {errors.infants?.type === 'required' && errorMessage("This field is required")}
         </div>
 
         <div className={styles.amount}>

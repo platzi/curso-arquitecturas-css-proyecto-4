@@ -44,8 +44,12 @@ export default function RoomDetails({ place }) {
       <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
       
       <section className={styles.intro}>
-        <Description content={description}/>
-        <Booking />
+        <div className={styles.descriptionContainer}>
+          <Description content={description}/>
+        </div>
+        <div className={styles.bookingContainer}>
+          <Booking />
+        </div>
       </section>
 
       <section className={styles.section}>
