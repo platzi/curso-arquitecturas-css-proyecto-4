@@ -11,16 +11,8 @@
   
 }
   
-@media screen and (min-width: 776px) {
+@media screen and (min-width: 768px) {
   .roomsListCenter {
     width: 90vw;
   }
-}
-
-@media screen and (min-width: 992px) {
-  .roomsListCenter {
-    width: 95vw;
-    max-width: 1170px;
-  }
-}
-  
+}  

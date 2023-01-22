@@ -12,17 +12,16 @@
         padding: 2rem 0 0 2rem;
 
         h6 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
         
         li {
             color: gray;
             list-style:none;
+            font-size: 0.9rem;
         }
-    
     }
-    
 }
 
 @media screen and (max-width: 776px) {
@@ -31,8 +30,4 @@
         
         flex-direction: column;        
     }    
-}
-
-@media screen and (min-width: 992px) {
-    
 }
