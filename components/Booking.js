@@ -1,4 +1,5 @@
 //import { useState } from 'react'
+import { useState } from 'react';
 import { useForm } from 'react-hook-form' 
 import styles from '../styles/Booking.module.scss'
 
@@ -9,16 +10,29 @@ const errorMessage = (error) => {
 
 export const Booking = () => {
 
+  const [checkin, setCheckin] = useState(null)
+  const [checkout, setCheckout] = useState(null)
   const { register, formState: { errors }, handleSubmit } = useForm();
   
-  const onSubmit = (event)=> {
+  const onSubmit = (data)=> {
 
-    event.preventDefault();
+    console.log('data');
     
   }
 
-  const handleChange = () => {
+  const handleChange = (event) => {
+    if (event.target.id === "checkin") {
+      setCheckin(new Date(event.target.value))
+      
+    } else if (event.target.id === "checkout") {
+      
+      setCheckout(new Date(event.target.value))
+    }
+  }
 
+  const validateCheckinDate = (value, formValues) => {
+    console.log(value)
+    console.log(formValues)
   }
 
   return (
@@ -30,7 +44,8 @@ export const Booking = () => {
           <div>
             <label htmlFor="checkin"> Check in date: </label>
             <input 
-              {...register("checkin", { required: true })} 
+              {...register("checkin", { required: true, validate: validateCheckinDate })} 
+              id="checkin"
               type="date" 
               onChange={ handleChange }  
             />
@@ -43,6 +58,7 @@ export const Booking = () => {
             <label htmlFor="checkout"> Check out date: </label>
             <input
               {...register("checkout", { required: true })} 
+              id="checkout"
               type="date" 
               onChange={ handleChange } 
             />
@@ -91,7 +107,9 @@ export const Booking = () => {
         </div>
 
         <div className={styles.amount}>
-            <span>7 noches</span>
+            
+            {checkin && checkout && <p>{(checkout.getTime() - checkin.getTime()) / 1000 / 86400} nights</p>}
+            
             <span>USD 50.00</span>
         </div>
         

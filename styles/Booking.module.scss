@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    
+    border: 1px solid gray;
+    border-radius: 10px;
     .form {
         //border: 1px solid blue;
         display: flex;
@@ -21,7 +22,7 @@
             //align-items: space-between;
             height: 2.5rem;
             //align-items: center;
-        
+            
             div {
 
                 display: flex;
@@ -30,7 +31,9 @@
                 input {
                     width: 8rem;
                     text-align: right;
-                    border: 1px solid gray;
+                    border: none;
+                    outline: 0;
+                    border-bottom: 1px solid gray;
                 }
             }
 
@@ -54,6 +57,10 @@
             margin: 1rem auto 0;
             width: 12rem;
             height: 3rem;
+            background-color: rgb(17, 95, 240);
+            border: none;
+            color: white;
+            border-radius: 5px;
         }
     }
 }
