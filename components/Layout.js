@@ -11,7 +11,7 @@ export const Layout = ( {children} ) => {
                 <title>Beautiful Places</title>
                 <meta property="og:title" content="Beautiful Places" key="title" />
                 <meta name='type' property='og:type' content='website' />
-                <meta name='image' property='og:image' content='https://places.sandrosimon.com/images/preview.png' />
+                {/* <meta name='image' property='og:image' content='https://places.sandrosimon.com/images/preview.png' /> */}
                 <meta name='url' property='og:url' content='https://places.sandrosimon.com' />
                 <meta name="description" property='og:description' content="Places is a website where you can look for a place to stay by yourself or with your family and reserve the one you like." />
             </Head>
