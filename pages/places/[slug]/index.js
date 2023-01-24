@@ -29,7 +29,9 @@ export default function RoomDetails({ place }) {
     
   return (
     <>
-      
+      <Link className={styles.back} href="/">
+        <p><span>&#60;</span> Home</p>
+      </Link>
       <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
       
       <section className={styles.intro}>

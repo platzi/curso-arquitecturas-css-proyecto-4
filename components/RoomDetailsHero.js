@@ -1,5 +1,6 @@
-import { Carousel } from './Carousel';
+import Link from 'next/link';
 import Image from 'next/image';
+import { Carousel } from './Carousel';
 import styles from '../styles/RoomDetailsHero.module.scss';
 
 export const RoomDetailsHero = ({ images, name, website, location }) => {
@@ -57,8 +58,6 @@ export const RoomDetailsHero = ({ images, name, website, location }) => {
                     }
                 </Carousel>
             </div>
-            
-            
         </div>
     )
 };
