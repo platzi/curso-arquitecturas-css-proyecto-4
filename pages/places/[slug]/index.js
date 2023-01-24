@@ -29,9 +29,11 @@ export default function RoomDetails({ place }) {
     
   return (
     <>
-      <Link className={styles.back} href="/">
-        <p><span>&#60;</span> Home</p>
-      </Link>
+      <div  className={styles.back}>
+        <Link href="/">
+          <p><span>&#60;</span> Home</p>
+        </Link>
+      </div>
       <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
       
       <section className={styles.intro}>
@@ -58,10 +60,10 @@ export default function RoomDetails({ place }) {
         <ReviewsContainer />
       </section>
 
-      {/* <section className={styles.section}>
+      <section className={styles.section}>
         <Title text='Location' />
         <MapContainer center={center} zoom={zoom} />
-      </section> */}
+      </section>
       
     </>
   )
