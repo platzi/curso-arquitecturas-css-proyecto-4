@@ -1,6 +1,6 @@
 const dev = process.env.NODE_ENV !== 'production';
 
-export const server = dev ? 'http://localhost:3000/' : 'https://resort-eight.vercel.app/';
+export const server = dev ? 'http://localhost:3000/' : 'https://places.sandrosimon.com/';
 
 export const mongoDbUri = process.env.MONGODB_URI
 
