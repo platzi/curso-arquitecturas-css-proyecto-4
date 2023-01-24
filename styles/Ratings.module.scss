@@ -1,9 +1,15 @@
 .ratings {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    //justify-content: space-between;
+    
+    margin-bottom: 2rem;
+    
+    .ratingsContainer {
+        padding-top: 1.6rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        //justify-content: space-between;
+    }
 }
 
 @media only screen and (max-width: 768px) {

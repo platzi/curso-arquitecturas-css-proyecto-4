@@ -16,9 +16,17 @@
     height: 100%;
     margin: 0 0.5rem;
     //border: 1px solid red;
+    text-decoration: none;
+    align-items: center;
   
     .logo {
       height: 100%;
+      width: auto;
+    }
+
+    h1 {
+      margin-left: 0.5rem;
+      color: orange;
     }
   }
 }

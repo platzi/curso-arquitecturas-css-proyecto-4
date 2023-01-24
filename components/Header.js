@@ -13,12 +13,13 @@ export const Header = () => {
             >
                 <Image 
                     className={styles.logo}
-                    src='/images/logo.png'
-                    alt="Peruvian Beaches"
-                    width={2000}
-                    height={2000} 
+                    src='/images/imagen-logo.png'
+                    alt="Beautiful Places"
+                    width={1000}
+                    height={1000} 
                     priority={true}
                 />
+                <h1>Beautiful Places</h1>
             </Link>
         </header>    
     );

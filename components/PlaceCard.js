@@ -19,7 +19,7 @@ export const PlaceCard = ({place}) => {
           />
           
         </div>
-        <div>
+        <div className={styles.info}>
           <h3>{name}</h3>
           <p>{location}</p>
           <span>{generalRating}</span>

@@ -15,17 +15,6 @@ import styles from '../../../styles/RoomDetails.module.scss';
 
 export default function RoomDetails({ place }) {
 
-  if ( !place ) {
-      return (
-        <div className={styles.error}>
-          <h3> no such room could be found...</h3>
-          <Link href="/">
-            back to rooms
-          </Link>
-        </div>
-      )
-  }    
-    
   const {
     name,
     description,
@@ -48,7 +37,7 @@ export default function RoomDetails({ place }) {
           <Description content={description}/>
         </div>
         <div className={styles.bookingContainer}>
-          <Booking />
+          <Booking pricePerNight={price} />
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import styles from '../styles/Ratings.module.scss';
 export const Ratings = ()=> {
     return (
         <div className={styles.ratings}>
+          <div className={styles.ratingsContainer}>
             {
               [
                 {caption: 'Limpieza', mark: 5},
@@ -17,7 +18,7 @@ export const Ratings = ()=> {
                 return <Rating caption={e.caption} mark={e.mark.toFixed(1)} key={i} />
               })
             }
-            
-          </div>
+          </div>  
+        </div>
     )
 }

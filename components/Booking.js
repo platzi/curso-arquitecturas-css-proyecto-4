@@ -8,7 +8,7 @@ const errorMessage = (error) => {
 };
 
 
-export const Booking = () => {
+export const Booking = ({pricePerNight}) => {
 
   const [checkin, setCheckin] = useState(null)
   const [checkout, setCheckout] = useState(null)
@@ -30,9 +30,8 @@ export const Booking = () => {
     }
   }
 
-  const validateCheckinDate = (value, formValues) => {
-    console.log(value)
-    console.log(formValues)
+  const validateCheckinDate = (value) => {
+    return value >= Date.now()
   }
 
   return (
@@ -44,7 +43,7 @@ export const Booking = () => {
           <div>
             <label htmlFor="checkin"> Check in date: </label>
             <input 
-              {...register("checkin", { required: true, validate: validateCheckinDate })} 
+              {...register("checkin", { required: true, valueAsDate: true, validate: v => v >= new Date() })} 
               id="checkin"
               type="date" 
               onChange={ handleChange }  
@@ -57,7 +56,7 @@ export const Booking = () => {
           <div>
             <label htmlFor="checkout"> Check out date: </label>
             <input
-              {...register("checkout", { required: true })} 
+              {...register("checkout", { required: true, valueAsDate: true, validate: (v, fv) => v > fv.checkin})} 
               id="checkout"
               type="date" 
               onChange={ handleChange } 
@@ -107,10 +106,13 @@ export const Booking = () => {
         </div>
 
         <div className={styles.amount}>
+            <div className={styles.totalNights}>
+              {checkin && checkout && <p>{(checkout - checkin) / 1000 / 86400} nights</p>}
+            </div>
             
-            {checkin && checkout && <p>{(checkout.getTime() - checkin.getTime()) / 1000 / 86400} nights</p>}
-            
-            <span>USD 50.00</span>
+            <div className={styles.totalPrice}>
+              <span>USD {(checkout - checkin) / 1000 / 86400 * pricePerNight }</span>
+            </div>
         </div>
         
         <input className={styles.button} type="submit" value="Reservar" />    

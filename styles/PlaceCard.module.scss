@@ -5,6 +5,7 @@
     justify-content: space-between;
     
     .placeLink {
+
         text-decoration: none;
         color: black;
         text-transform: capitalize;
@@ -20,6 +21,12 @@
                 //transition: var(--mainTransition);
             }
         
+        }
+
+        .info {
+            h3, p {
+                font-size: 0.9rem;
+            }
         }
     }
 }

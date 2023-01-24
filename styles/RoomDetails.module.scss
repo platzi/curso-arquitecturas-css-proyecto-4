@@ -1,24 +1,18 @@
 .intro {
 
     display: flex;
-    //grid-template-columns: 1fr 1fr;
     justify-content: center;
     column-gap: 3rem;
     width: 100%;
     margin: 2rem auto;
     padding: 1rem 0;
-    //border: 1px solid red;
-    //background-color: yellow;
-
+    
     .descriptionContainer {
         width: 50%;
-        //border: 1px solid blue;
     }
 
     .bookingContainer {
-        //background-color: blue;
         width: 35%;
-        //border: 1px solid red;
     }
 }
 
