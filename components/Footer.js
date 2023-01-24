@@ -27,21 +27,29 @@ export const Footer = () => {
 
     return (
         <div className={styles.footer}>
-            
-            {
-                footerMenu.map( (m, i) => {
-                    return <div className={styles.menu} key={i}>
-                        <h6>{m.title}</h6>
-                        <ul>
-                        {
-                            m.menuItems.map( (e, i) => {
-                                return <li key={i}>{e}</li>
-                            })
-                        }
-                        </ul>
-                    </div>
-                })
-            } 
+            <div className={styles.menuContainer}>
+                {
+                    footerMenu.map( (m, i) => {
+                        return <div className={styles.menu} key={i}>
+                            <h6>{m.title}</h6>
+                            <ul>
+                            {
+                                m.menuItems.map( (e, i) => {
+                                    return <li key={i}>{e}</li>
+                                })
+                            }
+                            </ul>
+                        </div>
+                    })
+                } 
+            </div>
+
+            <div className={styles.link}>
+                <span>Visit my other projects at: </span>
+                <span>
+                    <a href="https://sandrosimon.com" target="_blank" rel="noopener noreferrer"> SandroSimon.com</a>
+                </span>
+            </div>
             
         </div>
     )

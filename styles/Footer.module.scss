@@ -1,25 +1,41 @@
 .footer {
 
-    display: flex;
-    color: white;
     background-color: black;
-    width: 100%;
-    padding: 2rem 0 2rem 0;
+    color: white;
     
-    .menu {
-    
-        width: 100%;   
-        padding: 2rem 0 0 2rem;
+    .menuContainer {
 
-        h6 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        display: flex;
+        width: 100%;
+        padding: 2rem 0 2rem 0;
+    
+        .menu {
+    
+            width: 100%;   
+            padding: 2rem 0 0 2rem;
+    
+            h6 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            li {
+                color: gray;
+                list-style:none;
+                font-size: 0.8rem;
+            }
         }
-        
-        li {
-            color: gray;
-            list-style:none;
-            font-size: 0.8rem;
+    }
+    
+    .link {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0 3rem;
+        column-gap: 0.5rem;
+        color: white;
+
+        span a {
+            color: white;
         }
     }
 }
@@ -27,7 +43,16 @@
 @media screen and (max-width: 776px) {
 
     .footer {
-        
-        flex-direction: column;        
+        .menuContainer {
+            flex-direction: column;
+        }
+
+        .link {
+            
+            flex-direction: column;
+            align-items: center;
+            row-gap: 0.5rem;
+        }
+                
     }    
 }
