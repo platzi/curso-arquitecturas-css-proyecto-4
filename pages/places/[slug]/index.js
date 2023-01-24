@@ -60,10 +60,15 @@ export default function PlaceDetails({ place }) {
         <ReviewsContainer />
       </section>
 
-      <section className={styles.section}>
-        <Title text='Location' />
-        <Map center={center} zoom={zoom} />
-      </section>
+      {
+        center.lat && center.lng && (
+          <section className={styles.section}>
+            <Title text='Location' />
+            <Map center={center} zoom={zoom} />
+          </section>
+        )
+      }
+      
       
     </>
   )
