@@ -23,7 +23,7 @@ export const PlaceCard = ({place}) => {
           <h3>{name}</h3>
           <p>{location}</p>
           <span>{generalRating}</span>
-          <p>S/ {price} per night </p>
+          <p>$ {price} per night </p>
         </div>
       </Link>      
     </article>

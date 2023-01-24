@@ -13,9 +13,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-
     .ratings {
+        .ratingsContainer {
+            grid-template-columns: 1fr;    
+        }
+    }
         
-        grid-template-columns: 1fr;    
-    }    
 }

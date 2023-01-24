@@ -5,6 +5,7 @@
     width: 100%;
     border: 1px solid gray;
     border-radius: 10px;
+
     .form {
         //border: 1px solid blue;
         display: flex;
@@ -68,16 +69,11 @@
 @media only screen and (max-width: 768px) {
 
     .booking {
-        flex-direction: column;    
+        //flex-direction: column;   
+        .form {
+            padding: 0;
+        } 
 
-        .form .range {
-            
-            flex-direction: column;
-
-            .date {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
+        
     }    
 }

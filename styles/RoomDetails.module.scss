@@ -55,6 +55,15 @@
         flex-direction: column;
         padding: 1rem 1rem;
         width: 100%;
+        row-gap: 2rem;
+
+        .descriptionContainer {
+            width: 100%;
+        }
+
+        .bookingContainer {
+            width: 100%;
+        }
     } 
     
     .section {

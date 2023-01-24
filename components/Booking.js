@@ -111,7 +111,7 @@ export const Booking = ({pricePerNight}) => {
             </div>
             
             <div className={styles.totalPrice}>
-              <span>USD {(checkout - checkin) / 1000 / 86400 * pricePerNight }</span>
+              <span>$ {(checkout - checkin) / 1000 / 86400 * pricePerNight }</span>
             </div>
         </div>
         

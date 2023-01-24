@@ -10,3 +10,9 @@
         line-height: 1.6rem;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .description p {
+        margin: 0 auto;
+    }
+}

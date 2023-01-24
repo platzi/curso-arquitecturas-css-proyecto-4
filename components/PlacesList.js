@@ -1,12 +1,12 @@
 import { PlaceCard } from "./PlaceCard";
-import styles from '../styles/RoomsList.module.scss'
+import styles from '../styles/PlacesList.module.scss'
 
-export const RoomsList = ({ rooms }) => {
+export const PlacesList = ({ places }) => {
 
     return (
-        <section className={styles.roomsList}>
+        <section className={styles.placesList}>
             
-            {rooms.map(item => (
+            {places.map(item => (
                 <PlaceCard key={item._id} place={item} />
             ))}
             

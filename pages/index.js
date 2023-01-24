@@ -1,6 +1,7 @@
 import { server } from '../config'
-import { RoomsList } from '../components/RoomsList'
-import { Slider } from '../components/Slider'
+import { PlacesList } from '../components/PlacesList'
+//import { Slider } from '../components/Slider'
+import styles from '../styles/Home.module.scss'
 
 export default function Home({places = []}) {
 
@@ -17,11 +18,16 @@ export default function Home({places = []}) {
   }
   
   return (
-    <div className=''>
+    <div className={styles.home}>
       
-      <Slider config={sliderConfig}/>
-      <RoomsList rooms={places}/>
+      {/* <div className={styles.sliderContainer}>
+        <Slider config={sliderConfig}className={styles.slider} />
+      </div>  */}
       
+      <div className={styles.placesListContainer}>
+        <PlacesList places={places}/>
+      </div>
+    
     </div>
   )
 }
