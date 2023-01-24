@@ -1,19 +1,19 @@
 import { server } from '../../../config'
 import Link from 'next/link'
 
-import { RoomDetailsHero } from '../../../components/RoomDetailsHero';
+import { PlaceDetailsHero } from '../../../components/PlaceDetailsHero';
 import { Booking } from '../../../components/Booking';
 import { Description } from '../../../components/Description';
 import { Ratings } from '../../../components/Ratings';
 import { Amenities } from '../../../components/Amenities';
 import { ReviewsContainer } from '../../../components/ReviewsContainer';
 
-import MapContainer  from '../../../components/MapContainer';
+import Map from '../../../components/Map';
 import { Title } from '../../../components/Title';
 
-import styles from '../../../styles/RoomDetails.module.scss';
+import styles from '../../../styles/PlaceDetails.module.scss';
 
-export default function RoomDetails({ place }) {
+export default function PlaceDetails({ place }) {
 
   const {
     name,
@@ -34,7 +34,7 @@ export default function RoomDetails({ place }) {
           <p><span>&#60;</span> Home</p>
         </Link>
       </div>
-      <RoomDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
+      <PlaceDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
       
       <section className={styles.intro}>
         <div className={styles.descriptionContainer}>
@@ -62,7 +62,7 @@ export default function RoomDetails({ place }) {
 
       <section className={styles.section}>
         <Title text='Location' />
-        <MapContainer center={center} zoom={zoom} />
+        <Map center={center} zoom={zoom} />
       </section>
       
     </>

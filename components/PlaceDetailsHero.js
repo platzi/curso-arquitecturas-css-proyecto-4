@@ -1,13 +1,12 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Carousel } from './Carousel';
-import styles from '../styles/RoomDetailsHero.module.scss';
+import styles from '../styles/PlaceDetailsHero.module.scss';
 
-export const RoomDetailsHero = ({ images, name, website, location }) => {
-    //console.log(images)
+export const PlaceDetailsHero = ({ images, name, website, location }) => {
+
     return (
     
-        <div className={styles.roomDetailsHero}>
+        <div className={styles.placeDetailsHero}>
             
             <div className={styles.generalInfo}>
                 <div>
@@ -50,7 +49,6 @@ export const RoomDetailsHero = ({ images, name, website, location }) => {
                                 key={i}
                                 src={img} 
                                 alt=""
-                                //className={styles.img}
                                 width={200}
                                 height={200}
                             />

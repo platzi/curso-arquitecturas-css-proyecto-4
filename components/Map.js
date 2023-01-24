@@ -9,7 +9,7 @@ const containerStyle = {
   margin: '2rem auto'
 };
 
-function MapContainer({center, zoom}) {
+function Map({center, zoom}) {
   return (
     <LoadScript
       googleMapsApiKey={googleMapsApiKey}
@@ -25,4 +25,4 @@ function MapContainer({center, zoom}) {
   )
 }
 
-export default React.memo(MapContainer)
+export default React.memo(Map)
