@@ -58,6 +58,8 @@ export const Carousel = (props) => {
         }
     }
     
+    const dotsArray = new Array(length).fill(null)
+
     return (
         <div className={styles.carouselContainer}>
             <div className={styles.carouselWrapper}>
@@ -73,6 +75,15 @@ export const Carousel = (props) => {
                         {children}
                     </div>
                 </div>
+            </div>
+            <div className={styles.dots}>
+                {
+                    dotsArray.length && dotsArray.map((_, idx) => (
+                        <div key={idx} className={`${styles.dot} ${idx === currentIndex && styles.active}`}>
+                            
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
