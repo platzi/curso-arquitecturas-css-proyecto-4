@@ -19,8 +19,8 @@ export const Review = ({review, hidden}) => {
                     src={image} 
                     alt=""
                     className={styles.img}
-                    width={40}
-                    height={40} 
+                    width={200}
+                    height={200} 
                 />
                 <div>
                     <h6>{guestName}</h6>
