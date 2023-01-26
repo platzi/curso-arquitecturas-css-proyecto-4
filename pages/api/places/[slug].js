@@ -3,7 +3,7 @@ import Place from "../../../models/Place";
 
 export default async function handler(req, res) {
     
-    dbConnect()
+    await dbConnect()
     
     const {
         method,

@@ -1,4 +1,6 @@
-import { server } from '../../../config'
+// import { server } from '../../../config'
+import dbConnect from '../../../lib/dbConnect'
+import Place from '../../../models/Place';
 import Link from 'next/link'
 
 import { PlaceDetailsHero } from '../../../components/PlaceDetailsHero';
@@ -23,7 +25,7 @@ export default function PlaceDetails({ place }) {
     price,
     website,
     imagesUrls
-  } = place
+  } = JSON.parse(place) // Check this
 
   const zoom = 13
     
@@ -68,21 +70,49 @@ export default function PlaceDetails({ place }) {
           </section>
         )
       }
-      
-      
+       
     </>
   )
 }
 
+export async function getStaticPaths() {
+
+  await dbConnect()
+
+  const res = await Place.find({}, 'slug')
+  const places = res.map(e => ({params: {slug: e.slug}}))
+  
+  return {
+    paths: places,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({params}) {
+
+  await dbConnect()
+
+  const res = await Place.findOne({slug: params.slug});
+  
+  const place = await JSON.stringify(res)
+  
+  return {
+    props: { place },
+  }
+}
+
+
+/*
 export async function getServerSideProps({ query: { slug }}) {
 
   const res = await fetch(`${server}api/places/${slug}`)
 
   const place = await res.json();
-
-    return {
-        props: {
-            place,
-        }
-    }
+  
+  return {
+      props: {
+          place,
+      }
+  }
 }
+*/

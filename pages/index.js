@@ -1,4 +1,4 @@
-import { server } from '../config'
+//import { server } from '../config'
 import dbConnect from '../lib/dbConnect'
 import Place from '../models/Place'
 import { PlacesList } from '../components/PlacesList'
@@ -26,6 +26,7 @@ export async function getStaticProps() {
   const res = await Place.find({})
 
   const places = await JSON.stringify(res)
+  
   return {
     props: {
       places,

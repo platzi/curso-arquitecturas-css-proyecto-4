@@ -7,6 +7,7 @@ export const PlacesList = ({ places }) => {
         <section className={styles.placesList}>
             
             {
+                // Check the next line 
                 JSON.parse(places).map(item => (
                     <PlaceCard key={item._id} place={item} />
                 ))
