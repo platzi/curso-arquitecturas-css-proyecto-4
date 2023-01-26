@@ -6,9 +6,11 @@ export const PlacesList = ({ places }) => {
     return (
         <section className={styles.placesList}>
             
-            {places.map(item => (
-                <PlaceCard key={item._id} place={item} />
-            ))}
+            {
+                JSON.parse(places).map(item => (
+                    <PlaceCard key={item._id} place={item} />
+                ))
+            }
             
         </section>
     );
