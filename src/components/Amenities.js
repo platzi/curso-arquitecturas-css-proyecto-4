@@ -24,7 +24,7 @@ export const Amenities = ()=> {
             amenities.map((a, i) => {
               return <div key={i}>
                 <Image
-                  src={`/images/${a.icon}`}
+                  src={`src/images/${a.icon}`}
                   width={40}
                   height={40}
                   alt=''
