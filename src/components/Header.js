@@ -13,7 +13,7 @@ export const Header = () => {
             >
                 <Image 
                     className={styles.logo}
-                    src='/src/images/imagen-logo.png'
+                    src='/images/imagen-logo.png'
                     alt="Beautiful Places"
                     width={1000}
                     height={1000} 
