@@ -47,7 +47,7 @@ export const Footer = () => {
             <div className={styles.link}>
                 <span>Visit my other projects at: </span>
                 <span>
-                    <a href="https://sandrosimon.com" target="_blank" rel="noopener noreferrer"> SandroSimon.com</a>
+                    <a href="https://sandrosimon.com" target="_blank" rel="noopener noreferrer"> sandrosimon.com</a>
                 </span>
             </div>
             
