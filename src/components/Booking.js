@@ -30,10 +30,6 @@ export const Booking = ({pricePerNight}) => {
     }
   }
 
-  const validateCheckinDate = (value) => {
-    return value >= Date.now()
-  }
-
   return (
     <div className={styles.booking}>
       
@@ -115,7 +111,7 @@ export const Booking = ({pricePerNight}) => {
             </div>
         </div>
         
-        <input className={styles.button} type="submit" value="Reservar" />    
+        <input className={styles.button} type="submit" value="Book now" />    
       
       </form>
         

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Carousel } from './Carousel';
 import styles from '../styles/PlaceDetailsHero.module.scss';
 
-export const PlaceDetailsHero = ({ images, name, website, location }) => {
+export const PlaceDetailsHero = ({ images, name, location, generalRating }) => {
 
     return (
     
@@ -11,10 +11,9 @@ export const PlaceDetailsHero = ({ images, name, website, location }) => {
             <div className={styles.generalInfo}>
                 <div>
                     <h3>{name}</h3>
-                    <a href={website}>{website}</a>
                 </div>
                 
-                <span>Rating: ⭐⭐⭐⭐</span><span>100 reviews</span><span>{location}</span>
+                <span>Rating: {'⭐'.repeat(generalRating)}</span><span>{location}</span>
             </div>
             
             <div className={styles.photosContainer}>

@@ -22,9 +22,12 @@ export default function PlaceDetails({ place }) {
     description,
     coordinates: center,
     location,
+    generalRating,
     price,
     website,
-    imagesUrls
+    imagesUrls,
+    reviews,
+    ratings
   } = JSON.parse(place) // Check this
 
   const zoom = 13
@@ -36,7 +39,7 @@ export default function PlaceDetails({ place }) {
           <p><span>&#60;</span> Home</p>
         </Link>
       </div>
-      <PlaceDetailsHero images={imagesUrls} name={name} website={website} location={location}/>
+      <PlaceDetailsHero images={imagesUrls} name={name} generalRating={generalRating} location={location}/>
       
       <section className={styles.intro}>
         <div className={styles.descriptionContainer}>
@@ -54,12 +57,12 @@ export default function PlaceDetails({ place }) {
 
       <section className={styles.section}>
         <Title text='Ratings' />
-        <Ratings />
+        <Ratings ratings={ratings}/>
       </section>
 
       <section className={styles.section}>
         <Title text='Reviews' />
-        <ReviewsContainer />
+        <ReviewsContainer reviews={reviews}/>
       </section>
 
       {

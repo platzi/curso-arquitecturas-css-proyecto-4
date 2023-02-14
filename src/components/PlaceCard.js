@@ -22,7 +22,7 @@ export const PlaceCard = ({place}) => {
         <div className={styles.info}>
           <h3>{name}</h3>
           <p>{location}</p>
-          <span>{generalRating}</span>
+          <span>{'⭐'.repeat(generalRating)}</span>
           <p>$ {price} per night </p>
         </div>
       </Link>      

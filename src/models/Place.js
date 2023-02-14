@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 
+const ReviewSchema = new mongoose.Schema({ image: String, guestName: String, date: String, title: String, content: String });
+const RatingSchema = new mongoose.Schema({caption: String, mark: Number})
 const PlaceSchema = new mongoose.Schema({
   name: String,
   slug: String,
@@ -14,7 +16,9 @@ const PlaceSchema = new mongoose.Schema({
   },
   location: String,
   address: String,
-  extras: [String]
+  extras: [String],
+  reviews: [ReviewSchema],
+  ratings: [RatingSchema]
 })
 
 export default mongoose.models.Place || mongoose.model('Place', PlaceSchema)
