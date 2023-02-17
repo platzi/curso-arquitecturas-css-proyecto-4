@@ -2,20 +2,21 @@ import mongoose from 'mongoose'
 
 const ReviewSchema = new mongoose.Schema({ image: String, guestName: String, date: String, title: String, content: String });
 const RatingSchema = new mongoose.Schema({caption: String, mark: Number})
+
 const PlaceSchema = new mongoose.Schema({
-  name: String,
-  slug: String,
+  name: {type: String, required: true},
+  slug: {type: String, required: true},
   price: Number,
   maxGuests: Number,
   generalRating: Number,
-  description: String,
-  imagesUrls: [String],
+  description: {type: String, required: true},
+  imagesUrls: [{type: String, required: true}],
   coordinates: {
     lat: {type: Number}, 
     lng: {type: Number}
   },
-  location: String,
-  address: String,
+  location: {type: String, required: true},
+  address: {type: String, required: true},
   extras: [String],
   reviews: [ReviewSchema],
   ratings: [RatingSchema]

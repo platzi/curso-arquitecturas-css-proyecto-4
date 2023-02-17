@@ -52,6 +52,19 @@
             margin: 1rem 0;
             align-items: center;
             font-weight: bolder;
+
+            .totalPrice {
+                display: flex;
+                justify-content: space-between;
+                input {
+                    text-align: right;
+                    font-weight: bold;
+                    outline: none;
+                    border: none;
+                    align-self: flex-end;
+                    padding-right: 1rem;
+                }
+            }
         }
 
         .button {

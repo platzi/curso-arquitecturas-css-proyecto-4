@@ -1,6 +1,6 @@
-//import { useState } from 'react'
-import { useState } from 'react';
-import { useForm } from 'react-hook-form' 
+import { useRouter } from 'next/router';
+import { useForm, useWatch } from 'react-hook-form' 
+import {differenceInCalendarDays, format, addDays} from "date-fns";
 import styles from '../styles/Booking.module.scss'
 
 const errorMessage = (error) => {
@@ -10,25 +10,20 @@ const errorMessage = (error) => {
 
 export const Booking = ({pricePerNight}) => {
 
-  const [checkin, setCheckin] = useState(null)
-  const [checkout, setCheckout] = useState(null)
-  const { register, formState: { errors }, handleSubmit } = useForm();
-  
-  const onSubmit = (data)=> {
+  const { register, formState: { errors }, handleSubmit, control } = useForm();
+  const router = useRouter()
 
-    console.log('data');
+  const onSubmit = (data)=> {
+    console.log(data)
+    router.push({
+      pathname: '/booking',
+      query: {checkin: data.adults}
+    })
     
   }
 
-  const handleChange = (event) => {
-    if (event.target.id === "checkin") {
-      setCheckin(new Date(event.target.value))
-      
-    } else if (event.target.id === "checkout") {
-      
-      setCheckout(new Date(event.target.value))
-    }
-  }
+  const checkIn = useWatch({control, name: 'checkin'})
+  const checkOut = useWatch({control, name: 'checkout'})
 
   return (
     <div className={styles.booking}>
@@ -39,10 +34,12 @@ export const Booking = ({pricePerNight}) => {
           <div>
             <label htmlFor="checkin"> Check in date: </label>
             <input 
-              {...register("checkin", { required: true, valueAsDate: true, validate: v => v >= new Date() })} 
+              {...register("checkin", { required: true, valueAsDate: true })} 
               id="checkin"
-              type="date" 
-              onChange={ handleChange }  
+              type="date"
+              min={format(new Date(), 'yyyy-MM-dd')}
+              max={format(addDays(new Date(), 10), 'yyyy-MM-dd')}
+              /* onChange={ handleChange }   */
             />
           </div>
           {errors.checkin?.type === 'required' && errorMessage("This field is required")}
@@ -52,10 +49,13 @@ export const Booking = ({pricePerNight}) => {
           <div>
             <label htmlFor="checkout"> Check out date: </label>
             <input
-              {...register("checkout", { required: true, valueAsDate: true, validate: (v, fv) => v > fv.checkin})} 
+              {...register("checkout", { required: true, valueAsDate: true })} 
               id="checkout"
               type="date" 
-              onChange={ handleChange } 
+              required={true}
+              min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
+              max={format(addDays(new Date(), 16), 'yyyy-MM-dd')}
+              /* onChange={ handleChange }  */
             />
           </div>
           {errors.checkout?.type === 'required' && errorMessage("This field is required")}
@@ -67,7 +67,7 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("adults", { required: true, min: 0, max: 5 })} 
               type="number" 
-              onChange={ handleChange }
+              /* onChange={ handleChange } */
               defaultValue={0} 
             />
           </div>
@@ -81,7 +81,7 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("children", { required: true, min: 0, max: 5 })} 
               type="number" 
-              onChange={ handleChange }
+              /* onChange={ handleChange } */
               defaultValue={0} 
             />
           </div>
@@ -94,7 +94,7 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("infants", { required: true, min: 0, max: 5 })} 
               type="number" 
-              onChange={ handleChange } 
+              /* onChange={ handleChange } */ 
               defaultValue={0}
             />
           </div>
@@ -103,11 +103,19 @@ export const Booking = ({pricePerNight}) => {
 
         <div className={styles.amount}>
             <div className={styles.totalNights}>
-              {checkin && checkout && <p>{(checkout - checkin) / 1000 / 86400} nights</p>}
+              <p>{checkIn && checkOut ?  (checkOut - checkIn) / 86400000 : undefined} nigths</p>
+              
             </div>
             
             <div className={styles.totalPrice}>
-              <span>$ {(checkout - checkin) / 1000 / 86400 * pricePerNight }</span>
+              <input 
+                {...register("totalPrice", { required: true })}
+                readOnly={true} 
+                id='totalPrice'
+                type="number" 
+                value={ checkIn && checkOut ? ((checkOut - checkIn) / 86400000 * pricePerNight).toFixed(2) : 0} 
+                
+              />  
             </div>
         </div>
         
