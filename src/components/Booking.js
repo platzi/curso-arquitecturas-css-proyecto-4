@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useForm, useWatch } from 'react-hook-form' 
-import {differenceInCalendarDays, format, addDays} from "date-fns";
+import { format, addDays} from "date-fns";
 import styles from '../styles/Booking.module.scss'
 
 const errorMessage = (error) => {
@@ -14,10 +14,16 @@ export const Booking = ({pricePerNight}) => {
   const router = useRouter()
 
   const onSubmit = (data)=> {
-    console.log(data)
+    
     router.push({
       pathname: '/booking',
-      query: {checkin: data.adults}
+      query: {
+        checkin: format(data.checkin, 'yyyy-MM-dd'), 
+        checkout: format(data.checkout, 'yyyy-MM-dd'),
+        adults: data.adults,
+        children: data.children,
+        infants: data.infants
+      }
     })
     
   }
@@ -34,12 +40,10 @@ export const Booking = ({pricePerNight}) => {
           <div>
             <label htmlFor="checkin"> Check in date: </label>
             <input 
-              {...register("checkin", { required: true, valueAsDate: true })} 
+              {...register("checkin", { required: true, valueAsDate: true, validate: v => v >= Date.now() })} 
               id="checkin"
               type="date"
-              min={format(new Date(), 'yyyy-MM-dd')}
-              max={format(addDays(new Date(), 10), 'yyyy-MM-dd')}
-              /* onChange={ handleChange }   */
+              min={format(Date.now(), 'yyyy-MM-dd')}
             />
           </div>
           {errors.checkin?.type === 'required' && errorMessage("This field is required")}
@@ -49,13 +53,11 @@ export const Booking = ({pricePerNight}) => {
           <div>
             <label htmlFor="checkout"> Check out date: </label>
             <input
-              {...register("checkout", { required: true, valueAsDate: true })} 
+              {...register("checkout", { required: true, valueAsDate: true, validate : (v, fv) => v > fv.checkin })} 
               id="checkout"
               type="date" 
               required={true}
               min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
-              max={format(addDays(new Date(), 16), 'yyyy-MM-dd')}
-              /* onChange={ handleChange }  */
             />
           </div>
           {errors.checkout?.type === 'required' && errorMessage("This field is required")}
@@ -67,7 +69,6 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("adults", { required: true, min: 0, max: 5 })} 
               type="number" 
-              /* onChange={ handleChange } */
               defaultValue={0} 
             />
           </div>
@@ -81,7 +82,6 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("children", { required: true, min: 0, max: 5 })} 
               type="number" 
-              /* onChange={ handleChange } */
               defaultValue={0} 
             />
           </div>
@@ -94,7 +94,6 @@ export const Booking = ({pricePerNight}) => {
             <input 
               {...register("infants", { required: true, min: 0, max: 5 })} 
               type="number" 
-              /* onChange={ handleChange } */ 
               defaultValue={0}
             />
           </div>
@@ -114,7 +113,6 @@ export const Booking = ({pricePerNight}) => {
                 id='totalPrice'
                 type="number" 
                 value={ checkIn && checkOut ? ((checkOut - checkIn) / 86400000 * pricePerNight).toFixed(2) : 0} 
-                
               />  
             </div>
         </div>

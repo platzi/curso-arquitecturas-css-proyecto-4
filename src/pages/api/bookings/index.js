@@ -19,7 +19,8 @@ export default async function handler(req, res){
             break
 
         case 'POST':
-            
+            console.log('enviando......')
+            console.log(req.body)
             try {
                 const newBooking = new Booking(req.body)
                 await newBooking.save()
