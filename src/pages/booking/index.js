@@ -6,16 +6,30 @@ import { authOptions } from '../api/auth/[...nextauth]'
 
 export default function BookingPage({sessionInfo}){
     const router = useRouter()
-    //console.log("Receiving...", router.query)    
+    //console.log("Receiving...", router.query) 
+    const firstName = sessionInfo.user.firstName
+    const lastName = sessionInfo.user.lastName
     const {
+        placeId,
         checkin,
         checkout,
         adults,
         children,
-        infants
+        infants,
+        pricePerNight
     } = router.query
 
-    const { register, formState: { errors }, handleSubmit, control } = useForm();
+    const { register, formState: { errors }, handleSubmit, control } = useForm({
+        defaultValues: {
+            firstName,
+            lastName,
+            checkin, 
+            checkout,
+            adults,
+            children,
+            infants
+        }
+    });
 
     const errorMessage = (error) => {
         return <div /* className={styles.errorMessage} */>{error}</div>;
@@ -24,11 +38,9 @@ export default function BookingPage({sessionInfo}){
     const onSubmit = (data) => {
         data = {
             ...data, 
-            checkIn: '2023-02-25', 
-            checkOut: '2023-02-28', 
-            placeId: '63ed1de0516194026f84468b', 
+            placeId: placeId, 
             guestId: sessionInfo.user.email, 
-            totalPrice: 156
+            totalPrice: pricePerNight // Make calculations
         }
         
         const response = fetch('/api/bookings', {
@@ -78,7 +90,6 @@ export default function BookingPage({sessionInfo}){
                         id="checkin"
                         type="date"
                         min={format(Date.now(), 'yyyy-MM-dd')}
-                        defaultValue={checkin}
                         />
                     </div>
                     {errors.checkin?.type === 'required' && errorMessage("This field is required")}
@@ -94,7 +105,6 @@ export default function BookingPage({sessionInfo}){
                             type="date" 
                             required={true}
                             min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
-                            defaultValue={checkout}
                         />
                     </div>
                     {errors.checkout?.type === 'required' && errorMessage("This field is required")}
@@ -105,9 +115,8 @@ export default function BookingPage({sessionInfo}){
                     <div>
                         {/* <label htmlFor="adults"> Adults <span>(Age 13+)</span>: </label> */}
                         <input 
-                        {...register("adults", { required: true, min: 0, max: 5 })} 
-                        type="number" 
-                        defaultValue={adults} 
+                            {...register("adults", { required: true, min: 0, max: 5 })} 
+                            type="number"
                         />
                     </div>
                     {errors.adults?.type === 'required' && errorMessage("This field is required")}
@@ -118,9 +127,8 @@ export default function BookingPage({sessionInfo}){
                     <div>
                         {/* <label htmlFor="children">Children <span>(Ages 2-12)</span>: </label> */}
                         <input 
-                        {...register("children", { required: true, min: 0, max: 5 })} 
-                        type="number" 
-                        defaultValue={children} 
+                            {...register("children", { required: true, min: 0, max: 5 })} 
+                            type="number" 
                         />
                     </div>
                     {errors.children?.type === 'required' && errorMessage("This field is required")}
@@ -131,9 +139,8 @@ export default function BookingPage({sessionInfo}){
                     <div>
                         {/* <label htmlFor="infants">Infants <span>(Under 2)</span>: </label> */}
                         <input 
-                        {...register("infants", { required: true, min: 0, max: 5 })} 
-                        type="number" 
-                        defaultValue={infants}
+                            {...register("infants", { required: true, min: 0, max: 5 })} 
+                            type="number"
                         />
                     </div>
                     {errors.infants?.type === 'required' && errorMessage("This field is required")}

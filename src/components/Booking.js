@@ -8,7 +8,7 @@ const errorMessage = (error) => {
 };
 
 
-export const Booking = ({pricePerNight}) => {
+export const Booking = ({pricePerNight, placeId}) => {
 
   const { register, formState: { errors }, handleSubmit, control } = useForm();
   const router = useRouter()
@@ -18,11 +18,13 @@ export const Booking = ({pricePerNight}) => {
     router.push({
       pathname: '/booking',
       query: {
+        placeId,
         checkin: format(data.checkin, 'yyyy-MM-dd'), 
         checkout: format(data.checkout, 'yyyy-MM-dd'),
         adults: data.adults,
         children: data.children,
-        infants: data.infants
+        infants: data.infants,
+        pricePerNight
       }
     })
     

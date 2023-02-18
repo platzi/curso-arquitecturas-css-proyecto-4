@@ -18,6 +18,7 @@ import styles from '../../../styles/PlaceDetails.module.scss';
 export default function PlaceDetails({ place }) {
 
   const {
+    _id: placeId,
     name,
     description,
     coordinates: center,
@@ -45,7 +46,7 @@ export default function PlaceDetails({ place }) {
           <Description content={description}/>
         </div>
         <div className={styles.bookingContainer}>
-          <Booking pricePerNight={price} />
+          <Booking pricePerNight={price} placeId={placeId} />
         </div>
       </section>
 

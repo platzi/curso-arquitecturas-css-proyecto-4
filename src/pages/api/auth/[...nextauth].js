@@ -11,15 +11,20 @@ export const authOptions = {
   },
 
   callbacks: {
+
     async jwt({ token, user }) {
       if (user?._id) token._id = user._id;
       if (user?.isAdmin) token.isAdmin = user.isAdmin;
+      if (user?.firstName) token.firstName = user.firstName;
+      if (user?.lastName) token.lastName = user.lastName;
       return token;
     },
 
     async session({ session, token }) {
       if (token?._id) session.user._id = token._id;
       if (token?.isAdmin) session.user.isAdmin = token.isAdmin;
+      if (token?.firstName) session.user.firstName = token.firstName;
+      if (token?.lastName) session.user.lastName = token.lastName;
       return session;
     },
   },
@@ -29,15 +34,15 @@ export const authOptions = {
     CredentialsProvider({
 
       async authorize(credentials) {
+
         await  dbConnect()
+        
         const user = await User.findOne({
           email: credentials.email,
         });
-        //console.log(user)
-        console.log(credentials.password)
-        console.log(user.password)
+        
         if (user && await bcrypt.compare(credentials.password, user.password)) {
-          console.log('success!')
+          
           return {
             _id: user._id,
             firstName: user.firstName,
