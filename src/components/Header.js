@@ -1,8 +1,12 @@
+import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Header.module.scss'
 
+
 export const Header = () => {
+
+    const { data: session } = useSession()
 
     return (
 
@@ -21,6 +25,22 @@ export const Header = () => {
                 />
                 <h1>Beautiful Places</h1>
             </Link>
+            <div className={styles.sessionInfo}>
+                { 
+                    session 
+                    ? (
+                        <>
+                            <p>{session.user.email}</p>
+                            <a href="" onClick={()=>signOut()}>Sign out</a>
+                        </>
+                    ) : (
+                            
+                            <Link href="/login">Sign in</Link>
+                    ) 
+                }
+                
+                
+            </div>
         </header>    
     );
 }
