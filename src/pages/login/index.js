@@ -93,7 +93,7 @@ export default function LoginPage() {
 
       </form>
       <div>
-        Don't have an account? 
+        Do not have an account? 
       </div>
     </div>
   );

@@ -35,21 +35,24 @@ export default function BookingPage({sessionInfo}){
         return <div /* className={styles.errorMessage} */>{error}</div>;
     };
 
-    const onSubmit = (data) => {
+    const onSubmit = async data => {
+        
         data = {
             ...data, 
             placeId: placeId, 
             guestId: sessionInfo.user.email, 
             totalPrice: pricePerNight // Make calculations
         }
-        
-        const response = fetch('/api/bookings', {
+        // console.log(data)
+        const response = await fetch('/api/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         }).catch(error => console.log(error))
+
+        if (response.status === 201) router.push('/thankYou')
     }
 
     return (

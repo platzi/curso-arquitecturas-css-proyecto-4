@@ -22,6 +22,7 @@ export const PlaceDetailsHero = ({ images, name, location, generalRating }) => {
                         width={500}
                         height={500}
                         src={images[0]}
+                        priority
                         alt=''
                     />
                 </div>

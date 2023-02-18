@@ -10,7 +10,16 @@ const errorMessage = (error) => {
 
 export const Booking = ({pricePerNight, placeId}) => {
 
-  const { register, formState: { errors }, handleSubmit, control } = useForm();
+  const { register, formState: { errors }, handleSubmit, control } = useForm({
+    defaultValues: {
+      checkin: format(Date.now(), 'yyyy-MM-dd'),
+      checkout: format(addDays(Date.now(), 1), 'yyyy-MM-dd'),
+      adults: 1,
+      children: 0,
+      infants: 0
+    }
+  });
+
   const router = useRouter()
 
   const onSubmit = (data)=> {
@@ -30,8 +39,8 @@ export const Booking = ({pricePerNight, placeId}) => {
     
   }
 
-  const checkIn = useWatch({control, name: 'checkin'})
-  const checkOut = useWatch({control, name: 'checkout'})
+  const checkin = useWatch({control, name: 'checkin'})
+  const checkout = useWatch({control, name: 'checkout'})
 
   return (
     <div className={styles.booking}>
@@ -69,9 +78,8 @@ export const Booking = ({pricePerNight, placeId}) => {
           <div>
             <label htmlFor="adults"> Adults <span>(Age 13+)</span>: </label>
             <input 
-              {...register("adults", { required: true, min: 0, max: 5 })} 
-              type="number" 
-              defaultValue={0} 
+              {...register("adults", { required: true, min: 1, max: 5 })} 
+              type="number"  
             />
           </div>
           {errors.adults?.type === 'required' && errorMessage("This field is required")}
@@ -83,8 +91,7 @@ export const Booking = ({pricePerNight, placeId}) => {
             <label htmlFor="children">Children <span>(Ages 2-12)</span>: </label>
             <input 
               {...register("children", { required: true, min: 0, max: 5 })} 
-              type="number" 
-              defaultValue={0} 
+              type="number"  
             />
           </div>
           {errors.children?.type === 'required' && errorMessage("This field is required")}
@@ -96,7 +103,6 @@ export const Booking = ({pricePerNight, placeId}) => {
             <input 
               {...register("infants", { required: true, min: 0, max: 5 })} 
               type="number" 
-              defaultValue={0}
             />
           </div>
           {errors.infants?.type === 'required' && errorMessage("This field is required")}
@@ -104,7 +110,7 @@ export const Booking = ({pricePerNight, placeId}) => {
 
         <div className={styles.amount}>
             <div className={styles.totalNights}>
-              <p>{checkIn && checkOut ?  (checkOut - checkIn) / 86400000 : undefined} nigths</p>
+              <p>{checkin && checkout ?  (new Date(checkout) - new Date(checkin)) / 86400000 : undefined} nigths</p>
               
             </div>
             
@@ -114,7 +120,7 @@ export const Booking = ({pricePerNight, placeId}) => {
                 readOnly={true} 
                 id='totalPrice'
                 type="number" 
-                value={ checkIn && checkOut ? ((checkOut - checkIn) / 86400000 * pricePerNight).toFixed(2) : 0} 
+                value={ checkin && checkout ? ((new Date(checkout) - new Date(checkin)) / 86400000 * pricePerNight).toFixed(2) : 0} 
               />  
             </div>
         </div>

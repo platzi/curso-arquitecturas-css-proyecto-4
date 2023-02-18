@@ -15,6 +15,7 @@ export const PlaceCard = ({place}) => {
             src={imagesUrls[0]}
             width={500} 
             height={500}
+            priority
             alt="" 
           />
           

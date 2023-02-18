@@ -30,7 +30,7 @@ export default async function handler(req, res){
                 res.status(401).json({ message: "You must be logged in." });
                 return;
             } 
-            
+            console.log(req.body)
             try {
                 const newBooking = new Booking(req.body)
                 await newBooking.save() // What is the difference with Booking.create()
