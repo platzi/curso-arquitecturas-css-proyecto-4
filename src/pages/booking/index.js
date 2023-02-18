@@ -1,8 +1,10 @@
 import { useRouter } from "next/router"
-import { format, addDays} from "date-fns";
+import { format, addDays} from "date-fns"
 import { useForm } from "react-hook-form"
+import { getServerSession } from "next-auth"
+import { authOptions } from '../api/auth/[...nextauth]'
 
-export default function BookingPage(){
+export default function BookingPage({sessionInfo}){
     const router = useRouter()
     //console.log("Receiving...", router.query)    
     const {
@@ -25,7 +27,7 @@ export default function BookingPage(){
             checkIn: '2023-02-25', 
             checkOut: '2023-02-28', 
             placeId: '63ed1de0516194026f84468b', 
-            guestId: 'arturosimonore@gmail.com', 
+            guestId: sessionInfo.user.email, 
             totalPrice: 156
         }
         
@@ -142,4 +144,16 @@ export default function BookingPage(){
         </div>
         
     )
+}
+
+
+export async function getServerSideProps(context) {
+
+    const session = await getServerSession(context.req, context.res, authOptions)
+    console.log('existe session:', session)
+    if (!session) {
+        return { redirect: { destination: '/login?redirect=booking', permanent: false, } }
+    }
+
+    return { props: { sessionInfo: JSON.parse(JSON.stringify(session)),},}
 }

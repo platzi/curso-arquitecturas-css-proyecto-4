@@ -33,12 +33,15 @@ export const authOptions = {
         const user = await User.findOne({
           email: credentials.email,
         });
-        
+        //console.log(user)
+        console.log(credentials.password)
+        console.log(user.password)
         if (user && await bcrypt.compare(credentials.password, user.password)) {
-          
+          console.log('success!')
           return {
             _id: user._id,
-            name: user.name,
+            firstName: user.firstName,
+            lastName: user.lastName,
             email: user.email,
             isAdmin: user.isAdmin,
           };
