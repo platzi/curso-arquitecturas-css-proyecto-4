@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
+import styles from '../../styles/LoginPage.module.scss'
 
 export default function LoginPage() {
 
@@ -43,57 +45,58 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <form
-        className=""
-        onSubmit={handleSubmit(submitHandler)}
-      >
-        <h1 className="">Login</h1>
-        {/** Email */}
-        <div className="">
-          <input
-            type="email"
-            {
-                ...register('email', {
-                    required: 'Please enter an email',
-                    pattern: {
-                        value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                        message: 'Please enter a valid email',
-                    },
-                })
-            }
-            placeholder='Your email'
-            className=""
-            id="email"
-            autoFocus
-          />
-          {errors.email && (
-            <small className="">{errors.email.message}</small>
-          )}
+    <div className={styles.loginPage}>
+      <div className={styles.formContainer}>
+        <h2 className="">Sign in</h2>
+        <p>Please, enter your credentials.</p>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit(submitHandler)}
+        >
+          
+          {/** Email */}
+          <div className="">
+            <input
+              type="email"
+              {
+                  ...register('email', {
+                      required: 'Please enter an email',
+                      pattern: {
+                          value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
+                          message: 'Please enter a valid email',
+                      },
+                  })
+              }
+              placeholder='Enter your email address'
+              className=""
+              id="email"
+              autoFocus
+            />
+            {errors.email && (
+              <small className="">{errors.email.message}</small>
+            )}
 
-        </div>
-        
-        {/** Password */}
-        <div className="">
-          <input
-            {...register('password', { required: 'Please enter password' })}
-            type="password"
-            className=""
-            id="password"
-            placeholder='Your password'
-          />
-          {errors.password && (
-            <small className="">{errors.password.message}</small>
-          )}
-        </div>
+          </div>
+          
+          {/** Password */}
+          <div className="">
+            <input
+              {...register('password', { required: 'Please enter password' })}
+              type="password"
+              className=""
+              id="password"
+              placeholder='Enter your password'
+            />
+            {errors.password && (
+              <small className="">{errors.password.message}</small>
+            )}
+          </div>
 
-        <div className="">
-          <button className="">Login</button>
-        </div>
+          <button className={styles.button}>Sign in</button>
 
-      </form>
-      <div>
-        Do not have an account? 
+        </form>
+        <p>Don&apos;t have an account?</p>
+        <Link href='/signup'>Sign up here</Link>
       </div>
     </div>
   );
