@@ -1,4 +1,4 @@
-.loginPage {
+.signupPage {
 
     font-size: 14px;
     color: white;
@@ -22,7 +22,7 @@
         .form {
             margin: 1.5rem 0;
 
-            input[type=email], input[type=password] {
+            input[type=email], input[type=password], input[type=text]{
                 width: 100%;
                 //background-color: red;
                 padding: 12px 20px;
@@ -33,7 +33,7 @@
                 outline: none;
             }
             
-            .button {
+            button {
                 width: 100%;
                 background: #04AA6D;
                 border: none;
