@@ -8,7 +8,7 @@ const errorMessage = (error) => {
 };
 
 
-export const Booking = ({pricePerNight, placeId}) => {
+export const Booking = ({pricePerNight, placeId, name}) => {
 
   const { register, formState: { errors }, handleSubmit, control } = useForm({
     defaultValues: {
@@ -33,7 +33,8 @@ export const Booking = ({pricePerNight, placeId}) => {
         adults: data.adults,
         children: data.children,
         infants: data.infants,
-        pricePerNight
+        pricePerNight,
+        name
       }
     })
     

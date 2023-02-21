@@ -39,14 +39,14 @@ export default function PlaceDetails({ place }) {
           <p><span>&#60;</span> Home</p>
         </Link>
       </div>
-      <PlaceDetailsHero images={imagesUrls} name={name} generalRating={generalRating} location={location}/>
+      <PlaceDetailsHero images={imagesUrls} name={name} generalRating={generalRating} location={location} price={price} />
       
       <section className={styles.intro}>
         <div className={styles.descriptionContainer}>
           <Description content={description}/>
         </div>
         <div className={styles.bookingContainer}>
-          <Booking pricePerNight={price} placeId={placeId} />
+          <Booking pricePerNight={price} placeId={placeId} name={name} />
         </div>
       </section>
 

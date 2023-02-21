@@ -30,7 +30,7 @@ export const Header = () => {
                     session 
                     ? (
                         <>
-                            <p>{session.user.email}</p>
+                            <p>Hi, {session.user.firstName}</p>
                             <a href="" onClick={()=>signOut()}>Sign out</a>
                         </>
                     ) : (
