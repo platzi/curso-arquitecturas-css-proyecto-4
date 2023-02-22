@@ -31,7 +31,7 @@ export const Header = () => {
                     ? (
                         <>
                             <p>Hi, {session.user.firstName}</p>
-                            <a href="" onClick={()=>signOut()}>Sign out</a>
+                            <a href="#" onClick={()=>signOut()}>Sign out</a>
                         </>
                     ) : (
                             
