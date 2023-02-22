@@ -4,7 +4,6 @@ import Place from '../../../models/Place';
 import Link from 'next/link'
 
 import { PlaceDetailsHero } from '../../../components/PlaceDetailsHero';
-import { Booking } from '../../../components/Booking';
 import { Description } from '../../../components/Description';
 import { Ratings } from '../../../components/Ratings';
 import { Amenities } from '../../../components/Amenities';
@@ -25,9 +24,11 @@ export default function PlaceDetails({ place }) {
     location,
     generalRating,
     price,
+    priceBefore,
     imagesUrls,
     reviews,
-    ratings
+    ratings,
+    slug
   } = JSON.parse(place) // Check this
 
   const zoom = 13
@@ -45,8 +46,11 @@ export default function PlaceDetails({ place }) {
         <div className={styles.descriptionContainer}>
           <Description content={description}/>
         </div>
-        <div className={styles.bookingContainer}>
-          <Booking pricePerNight={price} placeId={placeId} name={name} />
+        <div className={styles.price}>
+          <p>Price per night: </p>
+           { priceBefore ? <p className={styles.priceBefore}> `$ ${priceBefore}`</p> : undefined}
+          <p className={styles.finalPrice}>$ {price.toFixed(2)}</p>
+          <Link href={{pathname: '/booking', query: {placeId, name, price, imagesUrls, slug}}}>Book now</Link>
         </div>
       </section>
 

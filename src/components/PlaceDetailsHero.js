@@ -10,7 +10,7 @@ export const PlaceDetailsHero = ({ images, name, location, generalRating, price 
             
             <div className={styles.generalInfo}>
                 <div>
-                    <h3>{name} - Price per night: $ {price}</h3>
+                    <h3>{name}</h3>
                 </div>
                 
                 <span>Rating: {'⭐'.repeat(generalRating)}</span><span>{location}</span>

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Header.module.scss'
 
-
 export const Header = () => {
 
     const { data: session } = useSession()
@@ -25,6 +24,7 @@ export const Header = () => {
                 />
                 <h1>Beautiful Places</h1>
             </Link>
+
             <div className={styles.sessionInfo}>
                 { 
                     session 
@@ -38,8 +38,7 @@ export const Header = () => {
                             <Link href="/login">Sign in</Link>
                     ) 
                 }
-                
-                
+                   
             </div>
         </header>    
     );

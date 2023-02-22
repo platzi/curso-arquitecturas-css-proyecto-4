@@ -5,6 +5,8 @@ import { getServerSession } from "next-auth"
 import { authOptions } from '../api/auth/[...nextauth]'
 import styles from '../../styles/BookingPage.module.scss'
 import { useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function BookingPage({sessionInfo}){
     const router = useRouter()
@@ -13,27 +15,20 @@ export default function BookingPage({sessionInfo}){
     const lastName = sessionInfo.user.lastName
     const {
         placeId,
-        checkin,
-        checkout,
-        adults,
-        children,
-        infants,
-        pricePerNight,
-        name
+        name, 
+        price,
+        imagesUrls,
+        slug
     } = router.query
 
     const { register, formState: { errors }, handleSubmit, control, watch, setValue } = useForm({
         defaultValues: {
             firstName,
             lastName,
-            checkin, 
-            checkout,
-            adults,
-            children,
-            infants,
-            pricePerNight,
-            nights: 0,
-            totalPrice: 0
+            adults: 1,
+            children: 0,
+            infants: 0,
+            pricePerNight: price,
         }
     });
 
@@ -42,8 +37,8 @@ export default function BookingPage({sessionInfo}){
     
     useEffect(()=> {
         setValue('nights', (watchedCheckout - watchedCheckin) / 86400000)
-        setValue('totalPrice', (watchedCheckout - watchedCheckin) / 86400000 * pricePerNight)
-    }, [watchedCheckout, watchedCheckin, pricePerNight])
+        setValue('totalPrice', (watchedCheckout - watchedCheckin) / 86400000 * price)
+    }, [watchedCheckout, watchedCheckin, price])
 
     const errorMessage = (error) => {
         return <div /* className={styles.errorMessage} */>{error}</div>;
@@ -55,9 +50,9 @@ export default function BookingPage({sessionInfo}){
             ...data, 
             placeId: placeId, 
             guestId: sessionInfo.user.email, 
-            totalPrice: pricePerNight // Make calculations
+            totalPrice: (watchedCheckout - watchedCheckin) / 86400000 * price // Make calculations
         }
-        // console.log(data)
+        
         const response = await fetch('/api/bookings', {
             method: 'POST',
             headers: {
@@ -71,8 +66,19 @@ export default function BookingPage({sessionInfo}){
 
     return (
         <div className={styles.bookingPage}>
+            
+            <div className={styles.imageContainer}>
+                <Image
+                    src={imagesUrls[0]}
+                    width={800}
+                    height={500}
+                    alt=''
+                />  
+                <Link href={`/places/${slug}`}>{name}</Link>  
+            </div>
+
             <div className={styles.formContainer}>
-                <h2>{name}</h2>
+                
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     {/** First name */}
                     <div className={styles.firstName}>
@@ -216,7 +222,7 @@ export default function BookingPage({sessionInfo}){
 export async function getServerSideProps(context) {
 
     const session = await getServerSession(context.req, context.res, authOptions)
-    console.log('existe session:', session)
+   
     if (!session) {
         return { redirect: { destination: '/login?redirect=booking', permanent: false, } }
     }
