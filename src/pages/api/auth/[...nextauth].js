@@ -34,9 +34,7 @@ export const authOptions = {
     CredentialsProvider({
 
       async authorize(credentials) {
-
         await  dbConnect()
-        
         const user = await User.findOne({
           email: credentials.email,
         });

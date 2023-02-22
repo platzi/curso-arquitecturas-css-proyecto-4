@@ -1,11 +1,11 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Header.module.scss'
 
 export const Header = () => {
 
-    const { data: session } = useSession()
+    const { status, data: session } = useSession()
 
     return (
 
@@ -27,7 +27,7 @@ export const Header = () => {
 
             <div className={styles.sessionInfo}>
                 { 
-                    session 
+                    (status === 'authenticated') 
                     ? (
                         <>
                             <p>Hi, {session.user.firstName}</p>
