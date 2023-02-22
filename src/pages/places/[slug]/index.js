@@ -69,14 +69,14 @@ export default function PlaceDetails({ place }) {
         <ReviewsContainer reviews={reviews}/>
       </section>
 
-      {/* {
+      {
         center.lat && center.lng && (
           <section className={styles.section}>
             <Title text='Location' />
             <Map center={center} zoom={zoom} />
           </section>
         )
-      } */}
+      } 
        
     </>
   )
