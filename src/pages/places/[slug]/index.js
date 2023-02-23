@@ -50,7 +50,7 @@ export default function PlaceDetails({ place }) {
           <p>Price per night: </p>
            { priceBefore ? <p className={styles.priceBefore}> `$ ${priceBefore}`</p> : undefined}
           <p className={styles.finalPrice}>$ {price.toFixed(2)}</p>
-          <Link href={{pathname: '/booking', query: {placeId, name, price, imagesUrls, slug}}}>
+          <Link href={{pathname: '/booking', query: {placeId, name, price, imageURL:imagesUrls[0], slug}}}>
             Book now
           </Link>
         </div>
@@ -71,14 +71,14 @@ export default function PlaceDetails({ place }) {
         <ReviewsContainer reviews={reviews}/>
       </section>
 
-      {/* {
+      {
         center.lat && center.lng && (
           <section className={styles.section}>
             <Title text='Location' />
             <Map center={center} zoom={zoom} />
           </section>
         )
-      }  */}
+      }
        
     </>
   )

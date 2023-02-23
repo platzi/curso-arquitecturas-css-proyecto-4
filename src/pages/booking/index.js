@@ -11,6 +11,10 @@ export default function BookingPage(){
     const router = useRouter()
     const { data: session, status } = useSession()
 
+    /* if (status === 'loading') {
+        return <p>Loading...</p>
+    } */
+
     if (status==='unauthenticated') {
         
         const query = {...router.query, destination: '/booking'}
@@ -23,7 +27,7 @@ export default function BookingPage(){
         placeId,
         name, 
         price,
-        imagesUrls,
+        imageURL,
         slug
     } = router.query
 
@@ -31,6 +35,8 @@ export default function BookingPage(){
         defaultValues: {
             firstName,
             lastName,
+            //checkin: format(Date.now(), 'yyyy-MM-dd'),
+            //checkout: format(addDays(Date.now(), 1), 'yyyy-MM-dd'),
             adults: 1,
             children: 0,
             infants: 0,
@@ -42,8 +48,11 @@ export default function BookingPage(){
     const watchedCheckout = watch("checkout")
     
     useEffect(()=> {
-        setValue('nights', (watchedCheckout - watchedCheckin) / 86400000)
-        setValue('totalPrice', (watchedCheckout - watchedCheckin) / 86400000 * price)
+        if (!isNaN(watchedCheckin) && !isNaN(watchedCheckout)) {
+            setValue('nights', (watchedCheckout - watchedCheckin) / 86400000)
+            setValue('totalPrice', (watchedCheckout - watchedCheckin) / 86400000 * price)
+        }
+        
     }, [watchedCheckout, watchedCheckin, price])
 
     const errorMessage = (error) => {
@@ -75,11 +84,12 @@ export default function BookingPage(){
             
             <div className={styles.imageContainer}>
                 <Image
-                    src={imagesUrls[0]}
+                    //src={imagesUrls[0]}
+                    src={imageURL}
                     width={800}
                     height={500}
                     alt=''
-                />  
+                /> 
                 <Link href={`/places/${slug}`}>{name}</Link>  
             </div>
 
@@ -125,6 +135,7 @@ export default function BookingPage(){
                             min={format(Date.now(), 'yyyy-MM-dd')}
                             />
                         </div>
+
                         {errors.checkin?.type === 'required' && errorMessage("This field is required")}
                     </div>
 
@@ -136,7 +147,6 @@ export default function BookingPage(){
                                 {...register("checkout", { required: true, valueAsDate: true, validate : (v, fv) => v > fv.checkin })} 
                                 id="checkout"
                                 type="date" 
-                                required={true}
                                 min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
                             />
                         </div>
