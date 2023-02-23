@@ -50,7 +50,9 @@ export default function PlaceDetails({ place }) {
           <p>Price per night: </p>
            { priceBefore ? <p className={styles.priceBefore}> `$ ${priceBefore}`</p> : undefined}
           <p className={styles.finalPrice}>$ {price.toFixed(2)}</p>
-          <Link href={{pathname: '/booking', query: {placeId, name, price, imagesUrls, slug}}}>Book now</Link>
+          <Link href={{pathname: '/booking', query: {placeId, name, price, imagesUrls, slug}}}>
+            Book now
+          </Link>
         </div>
       </section>
 

@@ -68,12 +68,12 @@ export default function BookingPage({sessionInfo}){
         <div className={styles.bookingPage}>
             
             <div className={styles.imageContainer}>
-                <Image
+                {/* <Image
                     src={imagesUrls[0]}
                     width={800}
                     height={500}
                     alt=''
-                />  
+                /> */}  
                 <Link href={`/places/${slug}`}>{name}</Link>  
             </div>
 

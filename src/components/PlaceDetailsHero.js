@@ -49,8 +49,9 @@ export const PlaceDetailsHero = ({ images, name, location, generalRating, price 
                                 key={i}
                                 src={img} 
                                 alt=""
-                                width={200}
+                                width={300}
                                 height={200}
+                                priority
                             />
                         ))
                     }
