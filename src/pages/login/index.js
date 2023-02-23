@@ -9,13 +9,15 @@ export default function LoginPage() {
 
   const { data: session } = useSession();
   const router = useRouter();
-  const { redirect } = router.query;
-
+  const { destination } = router.query;
+  
   useEffect(() => {
-    if (session?.user) {
-      router.push(redirect || '/');
-    }
-  }, [router, session, redirect]);
+
+    if (session?.user && destination) {
+      router.push({pathname: destination, query: router.query});
+    } 
+
+  }, [router, session, destination]);
 
   const {
     handleSubmit,

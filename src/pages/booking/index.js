@@ -1,18 +1,24 @@
 import { useRouter } from "next/router"
 import { format, addDays} from "date-fns"
 import { useForm } from "react-hook-form"
-import { getServerSession } from "next-auth"
-import { authOptions } from '../api/auth/[...nextauth]'
+import { useSession } from "next-auth/react"
 import styles from '../../styles/BookingPage.module.scss'
 import { useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function BookingPage({sessionInfo}){
+export default function BookingPage(){
     const router = useRouter()
-    //console.log("Receiving...", router.query) 
-    const firstName = sessionInfo.user.firstName
-    const lastName = sessionInfo.user.lastName
+    const { data: session, status } = useSession()
+
+    if (status==='unauthenticated') {
+        
+        const query = {...router.query, destination: '/booking'}
+        router.push({pathname: '/login', query})    
+    }
+    
+    const firstName = session?.user.firstName
+    const lastName = session?.user.lastName
     const {
         placeId,
         name, 
@@ -49,7 +55,7 @@ export default function BookingPage({sessionInfo}){
         data = {
             ...data, 
             placeId: placeId, 
-            guestId: sessionInfo.user.email, 
+            guestId: session.user.email, 
             totalPrice: (watchedCheckout - watchedCheckin) / 86400000 * price // Make calculations
         }
         
@@ -68,12 +74,12 @@ export default function BookingPage({sessionInfo}){
         <div className={styles.bookingPage}>
             
             <div className={styles.imageContainer}>
-                {/* <Image
+                <Image
                     src={imagesUrls[0]}
                     width={800}
                     height={500}
                     alt=''
-                /> */}  
+                />  
                 <Link href={`/places/${slug}`}>{name}</Link>  
             </div>
 
@@ -205,7 +211,6 @@ export default function BookingPage({sessionInfo}){
                                 {...register("totalPrice")} 
                                 type="number"
                                 readOnly
-                                //defaultValue={0}
                             />
                         </div>
                     </div>
@@ -218,7 +223,7 @@ export default function BookingPage({sessionInfo}){
     )
 }
 
-
+/*
 export async function getServerSideProps(context) {
 
     const session = await getServerSession(context.req, context.res, authOptions)
@@ -229,3 +234,4 @@ export async function getServerSideProps(context) {
 
     return { props: { sessionInfo: JSON.parse(JSON.stringify(session)),},}
 }
+*/
