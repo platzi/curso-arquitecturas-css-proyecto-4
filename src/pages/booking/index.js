@@ -132,7 +132,7 @@ export default function BookingPage(){
                         <div>
                             <label htmlFor="checkin"> Check in date: </label>
                             <input 
-                            {...register("checkin", { required: true, validate: v => parseISO(v) >= Date.now() })} 
+                            {...register("checkin", { required: true, validate: v => parseISO(v) >= parseISO(format(Date.now(), 'yyyy-MM-dd')) })} 
                             id="checkin"
                             type="date"
                             min={format(Date.now(), 'yyyy-MM-dd')}
