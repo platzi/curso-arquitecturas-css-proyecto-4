@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { format, addDays} from "date-fns"
+import { format, addDays, differenceInDays, parseISO} from "date-fns"
 import { useForm } from "react-hook-form"
 import { useSession } from "next-auth/react"
 import styles from '../../styles/BookingPage.module.scss'
@@ -35,8 +35,8 @@ export default function BookingPage(){
         defaultValues: {
             firstName,
             lastName,
-            //checkin: format(Date.now(), 'yyyy-MM-dd'),
-            //checkout: format(addDays(Date.now(), 1), 'yyyy-MM-dd'),
+            checkin: format(Date.now(), 'yyyy-MM-dd'),
+            checkout: format(addDays(Date.now(), 1), 'yyyy-MM-dd'),
             adults: 1,
             children: 0,
             infants: 0,
@@ -44,13 +44,16 @@ export default function BookingPage(){
         }
     });
 
-    const watchedCheckin = watch("checkin")
-    const watchedCheckout = watch("checkout")
+    // parseISO is neccesary since date-fns functions do no accept string anymore
+    const watchedCheckin = parseISO(watch("checkin"))
+    const watchedCheckout = parseISO(watch("checkout"))
     
     useEffect(()=> {
-        if (!isNaN(watchedCheckin) && !isNaN(watchedCheckout)) {
-            setValue('nights', (watchedCheckout - watchedCheckin) / 86400000)
-            setValue('totalPrice', (watchedCheckout - watchedCheckin) / 86400000 * price)
+        
+        if (watchedCheckin && watchedCheckout)  {  
+            const nights = differenceInDays(watchedCheckout, watchedCheckin)
+            setValue('nights', nights)
+            setValue('totalPrice', nights * price)
         }
         
     }, [watchedCheckout, watchedCheckin, price])
@@ -129,7 +132,7 @@ export default function BookingPage(){
                         <div>
                             <label htmlFor="checkin"> Check in date: </label>
                             <input 
-                            {...register("checkin", { required: true, valueAsDate: true, validate: v => v >= Date.now() })} 
+                            {...register("checkin", { required: true, validate: v => parseISO(v) >= Date.now() })} 
                             id="checkin"
                             type="date"
                             min={format(Date.now(), 'yyyy-MM-dd')}
@@ -144,7 +147,7 @@ export default function BookingPage(){
                         <div>
                             <label htmlFor="checkout"> Check out date: </label>
                             <input
-                                {...register("checkout", { required: true, valueAsDate: true, validate : (v, fv) => v > fv.checkin })} 
+                                {...register("checkout", { required: true, validate : (v, fv) => v > fv.checkin })} 
                                 id="checkout"
                                 type="date" 
                                 min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
