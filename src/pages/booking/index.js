@@ -1,11 +1,12 @@
+import Image from "next/image"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import { format, addDays, differenceInDays, parseISO} from "date-fns"
 import { useForm } from "react-hook-form"
 import { useSession } from "next-auth/react"
-import styles from '../../styles/BookingPage.module.scss'
 import { useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
+import { ErrorMessage } from "../../components/ErrorMessage"
+import styles from '../../styles/BookingPage.module.scss'
 
 export default function BookingPage(){
     const router = useRouter()
@@ -58,17 +59,12 @@ export default function BookingPage(){
         
     }, [watchedCheckout, watchedCheckin, price])
 
-    const errorMessage = (error) => {
-        return <div /* className={styles.errorMessage} */>{error}</div>;
-    };
-
     const onSubmit = async data => {
         
         data = {
             ...data, 
             placeId: placeId, 
             guestId: session.user.email, 
-            totalPrice: (watchedCheckout - watchedCheckin) / 86400000 * price // Make calculations
         }
         
         const response = await fetch('/api/bookings', {
@@ -87,7 +83,6 @@ export default function BookingPage(){
             
             <div className={styles.imageContainer}>
                 <Image
-                    //src={imagesUrls[0]}
                     src={imageURL}
                     width={800}
                     height={500}
@@ -110,7 +105,7 @@ export default function BookingPage(){
                                 placeholder="First name"
                             />
                         </div>
-                        {errors.firstName?.type === 'required' && errorMessage("This field is required")}
+                        {errors.firstName?.type === 'required' && ErrorMessage("This field is required")}
                     </div>
 
                     {/** Last name */}
@@ -124,7 +119,7 @@ export default function BookingPage(){
                                 placeholder="Last name"
                             />
                         </div>
-                        {errors.lastName?.type === 'required' && errorMessage("This field is required")}
+                        {errors.lastName?.type === 'required' && ErrorMessage("This field is required")}
                     </div>
 
                     {/** Check in */}
@@ -138,8 +133,7 @@ export default function BookingPage(){
                             min={format(Date.now(), 'yyyy-MM-dd')}
                             />
                         </div>
-
-                        {errors.checkin?.type === 'required' && errorMessage("This field is required")}
+                        {errors.checkin?.type === 'required' && ErrorMessage("This field is required")}
                     </div>
 
                     {/** Check out */}
@@ -153,7 +147,7 @@ export default function BookingPage(){
                                 min={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
                             />
                         </div>
-                        {errors.checkout?.type === 'required' && errorMessage("This field is required")}
+                        {errors.checkout?.type === 'validate' && ErrorMessage('check out should be greater than check in')}
                     </div>
 
                     {/** Number adults */}
@@ -165,7 +159,8 @@ export default function BookingPage(){
                                 type="number"
                             />
                         </div>
-                        {errors.adults?.type === 'required' && errorMessage("This field is required")}
+                        {errors.adults?.type === 'min' && ErrorMessage("This field should not be negative")}
+                        {errors.adults?.type === 'max' && ErrorMessage("Max value for this field is 5")}
                     </div>
 
                     {/** Number children */}
@@ -177,7 +172,8 @@ export default function BookingPage(){
                                 type="number" 
                             />
                         </div>
-                        {errors.children?.type === 'required' && errorMessage("This field is required")}
+                        {errors.children?.type === 'min' && ErrorMessage("This field should not be negative")}
+                        {errors.children?.type === 'max' && ErrorMessage("Max value for this field is 5")}
                     </div>
 
                     {/** Number infants */}
@@ -189,7 +185,8 @@ export default function BookingPage(){
                                 type="number"
                             />
                         </div>
-                        {errors.infants?.type === 'required' && errorMessage("This field is required")}
+                        {errors.infants?.type === 'min' && ErrorMessage("This field should not be negative")}
+                        {errors.infants?.type === 'max' && ErrorMessage("Max value for this field is 5")}
                     </div>
 
                     {/** total nights */}
