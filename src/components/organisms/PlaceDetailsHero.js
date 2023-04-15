@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Carousel } from './Carousel';
+import { Carousel } from '../molecules/Carousel';
 import styles from '../styles/PlaceDetailsHero.module.scss';
 
 export const PlaceDetailsHero = ({ images, name, location, generalRating, price }) => {

@@ -1,6 +1,6 @@
 import Head from "next/head"
-import { Header } from "./Header"
-import { Footer } from "./Footer"
+import { Header } from "../organisms/Header"
+import { Footer } from "../organisms/Footer"
 import styles from "../styles/Layout.module.scss"
 
 export const Layout = ( {children} ) => {

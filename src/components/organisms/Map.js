@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { googleMapsApiKey } from '../config';
+import { googleMapsApiKey } from '../../config';
 import styles from '../styles/Map.module.scss';
 
 const containerStyle = {
