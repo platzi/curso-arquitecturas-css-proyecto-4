@@ -3,14 +3,14 @@ import dbConnect from '../../../lib/dbConnect'
 import Place from '../../../models/Place';
 import Link from 'next/link'
 
-import { PlaceDetailsHero } from '../../../components/PlaceDetailsHero';
-import { Description } from '../../../components/Description';
-import { Ratings } from '../../../components/Ratings';
-import { Amenities } from '../../../components/Amenities';
-import { ReviewsContainer } from '../../../components/ReviewsContainer';
+import { PlaceDetailsHero } from '../../../components/organisms/PlaceDetailsHero';
+import { Description } from '../../../components/atoms/Description';
+import { Ratings } from '../../../components/molecules/Ratings';
+import { Amenities } from '../../../components/molecules/Amenities';
+import { ReviewsContainer } from '../../../components/templates/ReviewsContainer';
 
-import Map from '../../../components/Map';
-import { Title } from '../../../components/Title';
+import Map from '../../../components/organisms/Map';
+import { Title } from '../../../components/atoms/Title';
 
 import styles from '../../../styles/PlaceDetails.module.scss';
 

@@ -1,5 +1,5 @@
 import styles from '../styles/ReviewsContainer.module.scss';
-import { Review } from './Review';
+import { Review } from '../molecules/Review';
 
 export const ReviewsContainer = ({reviews}) => {
 

@@ -1,4 +1,4 @@
-import { Rating } from '../components/Rating';
+import { Rating } from '../molecules/Rating';
 import styles from '../styles/Ratings.module.scss';
 
 
